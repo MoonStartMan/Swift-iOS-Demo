@@ -19,9 +19,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-//        self.digitalLabel = UILabel.init(frame: CGRect.zero)
-//
-//        self.view.addSubview(self.digitalLabel!)
         self.backgroundView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
         self.view.addSubview(self.backgroundView!)
         self.backgroundView?.backgroundColor = UIColor.black
