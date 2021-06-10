@@ -14,6 +14,10 @@ class NumsView: UIView {
     var digitalView: UIView?
     //  数值label
     var digitalLabel: UILabel?
+    //  用户输入表达式或者计算结果字符串
+    var inputString = ""
+    //  历史表达式字符串
+    var historyString = ""
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +27,7 @@ class NumsView: UIView {
         self.addSubview(self.digitalView!)
         self.digitalView?.snp.makeConstraints({ make in
             make.width.equalToSuperview()
-            make.height.equalTo(200)
+            make.height.equalTo(300)
             make.top.left.equalToSuperview()
         })
         
@@ -33,11 +37,20 @@ class NumsView: UIView {
             make.height.equalTo(100)
             make.width.equalToSuperview()
             make.centerY.equalToSuperview().offset(0)
+            make.top.equalToSuperview().offset(200)
         })
         self.digitalLabel?.text = "0"
         self.digitalLabel?.font = UIFont.systemFont(ofSize: 100)
         self.digitalLabel?.textColor = .white
         self.digitalLabel?.textAlignment = NSTextAlignment.right
+        self.digitalLabel?.adjustsFontSizeToFitWidth = true
+        
+    }
+    
+    //  提供一个输入信息的接口
+    func inputContent(content: String) {
+        inputString.append(content)
+        self.digitalLabel?.text = inputString
     }
     
     required init?(coder: NSCoder) {

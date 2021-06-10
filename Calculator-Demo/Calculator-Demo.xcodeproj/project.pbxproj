@@ -12,8 +12,10 @@
 		303DD53F265D270E005A1742 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303DD53E265D270E005A1742 /* ViewController.swift */; };
 		303DD544265D2710005A1742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 303DD543265D2710005A1742 /* Assets.xcassets */; };
 		303DD547265D2710005A1742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 303DD545265D2710005A1742 /* LaunchScreen.storyboard */; };
+		3063BE8726705F33002046F9 /* BottomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3063BE8626705F33002046F9 /* BottomCollectionViewCell.swift */; };
+		3063BE892670ECBC002046F9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3063BE882670ECBC002046F9 /* Color.swift */; };
 		30B43FB0266F61BB00432F00 /* NumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B43FAF266F61BB00432F00 /* NumsView.swift */; };
-		30B43FB2266F6AEC00432F00 /* BottomBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B43FB1266F6AEC00432F00 /* BottomBtnView.swift */; };
+		30B43FB2266F6AEC00432F00 /* BottomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B43FB1266F6AEC00432F00 /* BottomCollectionView.swift */; };
 		60A94F7E81C95D662ACDD060 /* Pods_Calculator_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554220734CCFD756D0E10F72 /* Pods_Calculator_Demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,8 +29,10 @@
 		303DD543265D2710005A1742 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		303DD546265D2710005A1742 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		303DD548265D2710005A1742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3063BE8626705F33002046F9 /* BottomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCollectionViewCell.swift; sourceTree = "<group>"; };
+		3063BE882670ECBC002046F9 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		30B43FAF266F61BB00432F00 /* NumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumsView.swift; sourceTree = "<group>"; };
-		30B43FB1266F6AEC00432F00 /* BottomBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBtnView.swift; sourceTree = "<group>"; };
+		30B43FB1266F6AEC00432F00 /* BottomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCollectionView.swift; sourceTree = "<group>"; };
 		554220734CCFD756D0E10F72 /* Pods_Calculator_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calculator_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -69,7 +73,9 @@
 				303DD53C265D270E005A1742 /* SceneDelegate.swift */,
 				303DD53E265D270E005A1742 /* ViewController.swift */,
 				30B43FAF266F61BB00432F00 /* NumsView.swift */,
-				30B43FB1266F6AEC00432F00 /* BottomBtnView.swift */,
+				30B43FB1266F6AEC00432F00 /* BottomCollectionView.swift */,
+				3063BE8626705F33002046F9 /* BottomCollectionViewCell.swift */,
+				3063BE882670ECBC002046F9 /* Color.swift */,
 				303DD543265D2710005A1742 /* Assets.xcassets */,
 				303DD545265D2710005A1742 /* LaunchScreen.storyboard */,
 				303DD548265D2710005A1742 /* Info.plist */,
@@ -208,8 +214,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				303DD53F265D270E005A1742 /* ViewController.swift in Sources */,
-				30B43FB2266F6AEC00432F00 /* BottomBtnView.swift in Sources */,
+				30B43FB2266F6AEC00432F00 /* BottomCollectionView.swift in Sources */,
+				3063BE892670ECBC002046F9 /* Color.swift in Sources */,
 				303DD53B265D270E005A1742 /* AppDelegate.swift in Sources */,
+				3063BE8726705F33002046F9 /* BottomCollectionViewCell.swift in Sources */,
 				303DD53D265D270E005A1742 /* SceneDelegate.swift in Sources */,
 				30B43FB0266F61BB00432F00 /* NumsView.swift in Sources */,
 			);
