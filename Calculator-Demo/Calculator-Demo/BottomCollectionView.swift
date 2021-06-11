@@ -45,7 +45,7 @@ class BottomCollectionView: UICollectionView, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:BottomCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! BottomCollectionViewCell
-        cell.btnLabel?.text = self.dataArray[indexPath.row] as! String
+        cell.btnLabel?.text = self.dataArray[indexPath.row]
         if(indexPath.row >= 0 && indexPath.row <= 2) {
             let normalColor = UIColor.init(red: 165/255.0, green: 165/255.0, blue: 165/255.0, alpha: 1.0)
             cell.btnView?.backgroundColor = normalColor;
@@ -169,7 +169,7 @@ class BottomCollectionView: UICollectionView, UICollectionViewDelegate, UICollec
         return 0
     }
     
-    //  计算操作 +
+    
     func add() -> String {
         let num1 = self.strChangeDouble(self.lastInput)
         let num2 = self.strChangeDouble(self.currentInput)
