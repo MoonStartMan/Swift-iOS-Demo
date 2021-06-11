@@ -14,14 +14,14 @@ protocol CalculateDelegate: NSObject {
 
 class BottomCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
-    //  第一次记录
-    var inputFirstString: String = ""
-    //  第二次记录
-    var inputSecondString: String = ""
-    //  历史表达式字符串
-    var historyString: String = "0"
-    //  结果
-    var resultString: String = ""
+    //  上一次记录
+    var lastInput: String = "0"
+    //  当前记录
+    var currentInput: String = "0"
+    // 计算符号
+    var ch: String = ""
+    //  上一次计算符号
+    var lastCh: String = ""
     
     //  delegate
     weak var bottomDelegate: CalculateDelegate?
@@ -48,15 +48,12 @@ class BottomCollectionView: UICollectionView, UICollectionViewDelegate, UICollec
         cell.btnLabel?.text = self.dataArray[indexPath.row] as! String
         if(indexPath.row >= 0 && indexPath.row <= 2) {
             let normalColor = UIColor.init(red: 165/255.0, green: 165/255.0, blue: 165/255.0, alpha: 1.0)
-//            let hightColor = UIColor.init(red: 165/255.0, green: 165/255.0, blue: 165/255.0, alpha: 0.5)
             cell.btnView?.backgroundColor = normalColor;
         } else if (indexPath.row == 3 || indexPath.row == 7 || indexPath.row == 11 || indexPath.row == 15 || indexPath.row == 19) {
             let normalColor = UIColor.init(red: 241/255.0, green: 163/255.0, blue: 60/255.0, alpha: 1.0)
-//            let hightColor = UIColor.init(red: 241/255.0, green: 163/255.0, blue: 60/255.0, alpha: 0.5)
             cell.btnView?.backgroundColor = normalColor;
         } else {
             let normalColor = UIColor.init(red: 51/255.0, green: 51/255.0, blue: 51/255.0, alpha: 1.0)
-//            let hightColor = UIColor.init(red: 51/255.0, green: 51/255.0, blue: 51/255.0, alpha: 0.5)
             cell.btnView?.backgroundColor = normalColor;
         }
         
@@ -75,74 +72,187 @@ class BottomCollectionView: UICollectionView, UICollectionViewDelegate, UICollec
         let index = indexPath.row
         if(index == 4 || index == 5 || index == 6 || index == 8 || index == 9 || index == 10 || index == 12 || index == 13 || index == 14 || index == 16 || index == 17) {
             if (index == 17) {
-                guard !self.historyString.contains(".") else {
+                guard !self.currentInput.contains(".") else {
                     return
                 }
-                self.historyString.append(self.dataArray[index])
-                self.bottomDelegate?.showValue(value: self.historyString)
+                self.currentInput.append(self.dataArray[index])
+                self.bottomDelegate?.showValue(value: self.currentInput)
             } else {
-                if historyString == "0" {
-                    self.historyString.removeFirst()
-                    self.historyString.append(self.dataArray[index])
-                } else {
-                    self.historyString.append(self.dataArray[index])
+                if currentInput == "0" {
+                    self.currentInput.removeFirst()
                 }
-                self.bottomDelegate?.showValue(value: self.historyString)
+                self.currentInput.append(self.dataArray[index])
+                self.bottomDelegate?.showValue(value: self.currentInput)
             }
+            self.ch = ""
         } else if (index == 0) {
             //  清零
-            self.historyString = "0"
-            self.bottomDelegate?.showValue(value: self.historyString)
+            self.clear()
+            self.bottomDelegate?.showValue(value: self.currentInput)
         } else if (index == 1) {
             //  取反
-            if self.historyString.contains("-") {
-                guard let charIndex = self.historyString.firstIndex(of: "-") else { return  }
-                self.historyString.remove(at: charIndex)
+            let num1 = self.strChangeDouble(self.lastInput)
+            let num2 = self.strChangeDouble(self.currentInput)
+            var result = "\(num1 + num2)"
+            if result.contains("-") {
+                guard let charIndex = result.firstIndex(of: "-") else { return  }
+                result.remove(at: charIndex)
             } else {
-                self.historyString.insert("-", at: self.historyString.startIndex)
+                result.insert("-", at: result.startIndex)
             }
-            self.bottomDelegate?.showValue(value: self.historyString)
+            self.lastInput = "0"
+            self.currentInput = result
+            self.bottomDelegate?.showValue(value: self.currentInput)
+            
         } else if (index == 2) {
             //  除100
-            if let result = Double(self.historyString) {
-                self.historyString = "\(result * 0.01)"
-            }
-            self.bottomDelegate?.showValue(value: self.historyString)
+            let num1 = self.strChangeDouble(self.lastInput)
+            let num2 = self.strChangeDouble(self.currentInput)
+            let result = num1 + num2
+            self.currentInput = "\(result * 0.01)"
+            self.lastInput = "0"
+            self.bottomDelegate?.showValue(value: self.currentInput)
         } else if (index == 3 || index == 7 || index == 11 || index == 15) {
-            self.inputFirstString = "\(self.historyString)"
-            self.historyString = "0"
-            self.bottomDelegate?.showValue(value: self.historyString)
-            var num1: Double = 0.0
-            if let n1 = Double(self.inputFirstString) {
-                num1 = n1
-            }
-            var num2: Double = 0.0
-            if let n2 = Double(self.historyString) {
-                num2 = n2
+            var result: String = ""
+            if (!self.ch.isEmpty) {
+                return
             }
             switch index {
             case 3:
                 // 除
-                self.resultString = "\(num1 / num2)"
+                self.ch = "/"
                 break
             case 7:
                 // 乘
-                self.resultString = "\(num1 * num2)"
+                self.ch = "*"
                 break
             case 11:
                 // 减
-                self.resultString = "\(num1 - num2)"
+                self.ch = "-"
                 break
             case 15:
                 // 加
-                self.resultString = "\(num1 + num2)"
+                self.ch = "+"
                 break
             default:
                 break
             }
+            if (self.lastCh.isEmpty) {
+                result = self.currentInput
+                self.lastInput = self.currentInput
+                self.currentInput = "0"
+            } else {
+                result = self.calculator()
+            }
+            self.lastCh = self.ch
+            self.bottomDelegate?.showValue(value: result)
         } else if (index == 18) {
-            self.inputSecondString = "\(self.historyString)"
+            let result = self.calculator()
+            self.ch = ""
+            self.bottomDelegate?.showValue(value: result)
         }
+    }
+    
+    //  清零操作
+    func clear() {
+        self.currentInput = "0"
+        self.lastInput = "0"
+        self.ch = ""
+        self.lastCh = ""
+    }
+    
+    //  String转Double
+    func strChangeDouble(_ str:String) -> Double {
+        if let n1 = Double(str) {
+            return n1
+        }
+        return 0
+    }
+    
+    //  计算操作 +
+    func add() -> String {
+        let num1 = self.strChangeDouble(self.lastInput)
+        let num2 = self.strChangeDouble(self.currentInput)
+        
+        self.lastInput = "\(num1 + num2)"
+        
+        self.currentInput = "0"
+        return self.lastInput
+    }
+    
+    //  计算操作 -
+    func subtract() -> String {
+        let num1 = self.strChangeDouble(self.lastInput)
+        let num2 = self.strChangeDouble(self.currentInput)
+        
+        if (self.lastInput == "0") {
+            self.lastInput = self.currentInput
+        } else {
+            self.lastInput = "\(num1 - num2)"
+        }
+        
+        self.currentInput = "0"
+        return self.lastInput
+    }
+    
+    //  计算操作 *
+    func multiply() -> String {
+        let num1 = self.strChangeDouble(self.lastInput)
+        let num2 = self.strChangeDouble(self.currentInput)
+        
+        if (num2 == 0) {
+            return lastInput
+        }
+        
+        if (self.lastInput == "0") {
+            self.lastInput = self.currentInput
+        } else {
+            self.lastInput = "\(num1 * num2)"
+        }
+        
+        self.currentInput = "0"
+        return self.lastInput
+    }
+    
+    //  计算操作 /
+    func divide() -> String {
+        let num1 = self.strChangeDouble(self.lastInput)
+        let num2 = self.strChangeDouble(self.currentInput)
+        
+        if (num2 == 0) {
+            return lastInput
+        }
+        
+        if (self.lastInput == "0") {
+            self.lastInput = self.currentInput
+        } else {
+            self.lastInput = "\(num1 / num2)"
+        }
+        
+        self.currentInput = "0"
+        return self.lastInput
+    }
+    
+    //  计算方法
+    func calculator() -> String {
+        var result: String = ""
+        switch self.lastCh {
+        case "+":
+            result = self.add()
+            break
+        case "-":
+            result = self.subtract()
+            break
+        case "*":
+            result = self.multiply()
+            break
+        case "/":
+            result = self.divide()
+            break
+        default:
+            break
+        }
+        return result
     }
     
     required init?(coder: NSCoder) {
