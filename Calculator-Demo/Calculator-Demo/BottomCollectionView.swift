@@ -169,7 +169,6 @@ class BottomCollectionView: UICollectionView, UICollectionViewDelegate, UICollec
         return 0
     }
     
-    
     func add() -> String {
         let num1 = self.strChangeDouble(self.lastInput)
         let num2 = self.strChangeDouble(self.currentInput)
