@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-store-demo/Pods-store-demo-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
+${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
