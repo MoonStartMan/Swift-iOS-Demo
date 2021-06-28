@@ -11,7 +11,6 @@ class DealListViewController: BaseViewController, CommonListDelegate{
     func didSelectItem<Item>(_ item: Item) {
         
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
