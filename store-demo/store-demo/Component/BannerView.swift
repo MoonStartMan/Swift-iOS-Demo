@@ -38,7 +38,15 @@ class BannerView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
     }
     weak var delegate: BannerViewDelegate?
     
-    var autoScrollInterval: Float = 0
+    var autoScrollInterval: Float = 0 {
+        didSet {
+            if self.autoScrollInterval > 0 {
+                self.startAutoScroll()
+            } else {
+                self.stopAutoScroll()
+            }
+        }
+    }
     //  是否允许无限轮播
     var isInfinite: Bool = true
     //  计时器
@@ -164,10 +172,10 @@ class BannerView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
         if isInfinite {
             let nextPageNumber = currentPageNumber + 1
             collectionView.setContentOffset(CGPoint(x: collectionView.frame.width * CGFloat(nextPageNumber), y: 0), animated: true)
-            if nextPageNumber >= totalPageNumber {
+            if nextPageNumber >= totalPageNumber + 1 {
                 pageControl.currentPage = 0
             } else {
-                pageControl.currentPage = nextPageNumber
+                pageControl.currentPage = nextPageNumber - 1
             }
         } else {
             var nextPageNumber = currentPageNumber + 1

@@ -38,6 +38,13 @@
 		30A6B8912685C0D2006D75BF /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A6B8902685C0D2006D75BF /* UIColorExtension.swift */; };
 		30A6B8932685C332006D75BF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A6B8922685C332006D75BF /* BaseViewController.swift */; };
 		30A6B8952685C3C5006D75BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A6B8942685C3C5006D75BF /* LoginViewController.swift */; };
+		30ACD42F2689597200CCB163 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ACD42E2689597200CCB163 /* ProductList.swift */; };
+		30ACD431268960ED00CCB163 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ACD430268960ED00CCB163 /* DetailViewController.swift */; };
+		30ACD4332689649B00CCB163 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ACD4322689649B00CCB163 /* Tab.swift */; };
+		30ACD4352689791000CCB163 /* CommonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ACD4342689791000CCB163 /* CommonCell.swift */; };
+		30ACD43726898C4500CCB163 /* DealListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ACD43626898C4500CCB163 /* DealListViewController.swift */; };
+		30ACD43926898C8800CCB163 /* CommonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ACD43826898C8800CCB163 /* CommonList.swift */; };
+		30ACD43B2689A42900CCB163 /* DealListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ACD43A2689A42900CCB163 /* DealListCell.swift */; };
 		30DD07602685DC52000749FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD075F2685DC52000749FD /* HomeViewController.swift */; };
 		30DD07622685DC78000749FD /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD07612685DC78000749FD /* MineViewController.swift */; };
 		30DD07652685DFE8000749FD /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD07642685DFE8000749FD /* BannerView.swift */; };
@@ -76,6 +83,13 @@
 		30A6B8902685C0D2006D75BF /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		30A6B8922685C332006D75BF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		30A6B8942685C3C5006D75BF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		30ACD42E2689597200CCB163 /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
+		30ACD430268960ED00CCB163 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		30ACD4322689649B00CCB163 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		30ACD4342689791000CCB163 /* CommonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCell.swift; sourceTree = "<group>"; };
+		30ACD43626898C4500CCB163 /* DealListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealListViewController.swift; sourceTree = "<group>"; };
+		30ACD43826898C8800CCB163 /* CommonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonList.swift; sourceTree = "<group>"; };
+		30ACD43A2689A42900CCB163 /* DealListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealListCell.swift; sourceTree = "<group>"; };
 		30DD075F2685DC52000749FD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		30DD07612685DC78000749FD /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		30DD07642685DFE8000749FD /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
@@ -148,6 +162,8 @@
 				30A6B8942685C3C5006D75BF /* LoginViewController.swift */,
 				30DD075F2685DC52000749FD /* HomeViewController.swift */,
 				30DD07612685DC78000749FD /* MineViewController.swift */,
+				30ACD430268960ED00CCB163 /* DetailViewController.swift */,
+				30ACD43626898C4500CCB163 /* DealListViewController.swift */,
 			);
 			path = "store-demo";
 			sourceTree = "<group>";
@@ -200,6 +216,11 @@
 			isa = PBXGroup;
 			children = (
 				30DD07642685DFE8000749FD /* BannerView.swift */,
+				30ACD42E2689597200CCB163 /* ProductList.swift */,
+				30ACD4322689649B00CCB163 /* Tab.swift */,
+				30ACD4342689791000CCB163 /* CommonCell.swift */,
+				30ACD43826898C8800CCB163 /* CommonList.swift */,
+				30ACD43A2689A42900CCB163 /* DealListCell.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -356,18 +377,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30ACD43926898C8800CCB163 /* CommonList.swift in Sources */,
 				30A6B8952685C3C5006D75BF /* LoginViewController.swift in Sources */,
+				30ACD43B2689A42900CCB163 /* DealListCell.swift in Sources */,
+				30ACD43726898C4500CCB163 /* DealListViewController.swift in Sources */,
 				30DD07622685DC78000749FD /* MineViewController.swift in Sources */,
 				30A6B88E26857AD5006D75BF /* FakeData.swift in Sources */,
 				30A6B8912685C0D2006D75BF /* UIColorExtension.swift in Sources */,
+				30ACD4352689791000CCB163 /* CommonCell.swift in Sources */,
 				300B49AB26848DB700D48B23 /* ViewController.swift in Sources */,
+				30ACD42F2689597200CCB163 /* ProductList.swift in Sources */,
 				30A6B88926857A0D006D75BF /* Product.swift in Sources */,
 				30DD07602685DC52000749FD /* HomeViewController.swift in Sources */,
 				30A6B88C26857AA1006D75BF /* Deal.swift in Sources */,
 				30DD07652685DFE8000749FD /* BannerView.swift in Sources */,
 				30A6B8932685C332006D75BF /* BaseViewController.swift in Sources */,
 				300B49A726848DB700D48B23 /* AppDelegate.swift in Sources */,
+				30ACD4332689649B00CCB163 /* Tab.swift in Sources */,
 				30A6B88726857998006D75BF /* R.generated.swift in Sources */,
+				30ACD431268960ED00CCB163 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
