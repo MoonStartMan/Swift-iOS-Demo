@@ -23,3 +23,6 @@ Swift通过协议传值
 
 ![avatar](store-demo/商城列表Demo.png)
 
+## UICollectionView-拖拽
+
+iOS11版本后的UICollectionView-拖拽
