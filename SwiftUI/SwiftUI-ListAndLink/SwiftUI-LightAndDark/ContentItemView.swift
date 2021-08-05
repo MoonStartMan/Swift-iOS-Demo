@@ -53,8 +53,8 @@ struct ContentItemView: View {
     }
 }
 
-//struct ContentItemView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentItemView(itemType: .ItemTypeContent, iconImageName: "heart", titleName: "Like", iconRightText: "")
-//    }
-//}
+struct ContentItemView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentItemView(itemType: .ItemTypeContent, iconImageName: "heart", titleName: "Like", iconRightText: "")
+    }
+}

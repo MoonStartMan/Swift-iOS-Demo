@@ -20,7 +20,7 @@ let settingModelArray: [settingModel] = [
     settingModel(itemType: ItemType.ItemTypeContent, iconImageName: "setting_delete", titleName: "Delete", iconRightText: "135M"),
     settingModel(itemType: ItemType.ItemTypeLink, iconImageName: "setting_upload", titleName: "Upload", iconRightText: ""),
     settingModel(itemType: ItemType.ItemTypeLink, iconImageName: "setting_search", titleName: "Search", iconRightText: ""),
-    settingModel(itemType: ItemType.ItemTypeLink, iconImageName: "setting_like", titleName: "Like", iconRightText: ""),
+    settingModel(itemType: ItemType.ItemTypeLink, iconImageName: "setting_like", titleName: "Like", iconRightText: "")
 ]
 
 struct linkToModel {

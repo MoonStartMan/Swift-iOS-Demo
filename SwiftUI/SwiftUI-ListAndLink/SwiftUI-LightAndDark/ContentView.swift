@@ -10,6 +10,12 @@ import UIKit
 
 struct ContentView: View {
     
+    init(){
+        UITableView.appearance().backgroundColor = .clear
+        UITableViewCell.appearance().backgroundColor = .clear
+        UITableView.appearance().separatorStyle = .none
+    }
+    
     //  跳转链接总数
     private let totalCount: Int = settingModelArray.count
     
@@ -19,9 +25,7 @@ struct ContentView: View {
     var body: some View {
         
         NavigationView {
-            
-            List {
-                ForEach(0 ..< settingModelArray.count,id:\.self) { i in
+                List(0 ..< settingModelArray.count,id:\.self) { i in
                     NavigationLink(
                         "",
                         destination: linkToModelArray[i].linkView as? Text,
@@ -40,7 +44,6 @@ struct ContentView: View {
                         jumpToLink = "\(linkToModelArray[i].tag)"
                     }
                 }
-            }
             .background(Color.clear)
             .listRowBackground(Color.clear)
             .environment(\.defaultMinListRowHeight, 80)
