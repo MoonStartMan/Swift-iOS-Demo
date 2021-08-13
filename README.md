@@ -44,3 +44,7 @@ SwiftUI 规则瀑布流布局
 ### SwiftUI-Geometry-Demo
 
 SwiftUI-Geometry布局Demo
+
+### Static-Model-Demo
+
+Swift弹窗组件
