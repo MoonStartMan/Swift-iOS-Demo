@@ -56,3 +56,7 @@ swiftUI 设置导航部分的Demo
 ### Swift-Touch-Demo
 
 Swift点击Demo
+
+### swift-Slider-Demo
+
+简单的Slider自定义Demo
