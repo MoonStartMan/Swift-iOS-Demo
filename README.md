@@ -60,3 +60,7 @@ Swift点击Demo
 ### swift-Slider-Demo
 
 简单的Slider自定义Demo
+
+### Custom-Slider-Demo
+
+通过UIView自定义Slider
