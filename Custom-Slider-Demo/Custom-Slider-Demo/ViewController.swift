@@ -19,8 +19,15 @@ class ViewController: UIViewController {
             make.top.equalToSuperview().offset(200)
             make.width.equalTo(300)
             make.centerX.equalToSuperview()
-            make.height.equalTo(10)
+            make.height.equalTo(40)
         }
+        
+        slider.sliderChange = { (value: Int) -> Void in
+            print(value)
+        }
+        slider.cornerRadius = 5
+        slider.sliderHeight = 30
+        slider.sliderSize = CGRect(x: 0, y: 0, width: 20, height: 20)
     }
 
 
