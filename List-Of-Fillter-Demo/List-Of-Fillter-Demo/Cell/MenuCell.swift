@@ -22,17 +22,17 @@ class MenuCell: UICollectionViewCell {
         menuLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        menuLabel.textColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0)
-        menuLabel.font = .systemFont(ofSize: 14, weight: .bold)
+        menuLabel.textColor = UIColor(red: 153/255.0, green: 153/255.0, blue: 153/255.0, alpha: 1.0)
+        menuLabel.font = UIFont(name: "Montserrat-Medium", size: 12)
         menuLabel.textAlignment = .center
     }
     
     /// 切换激活态
     func changeActive(isActive: Bool) {
         if isActive {
-            menuLabel.textColor = UIColor(red: 163/255.0, green: 69/255.0, blue: 255/255.0, alpha: 1.0)
+            menuLabel.textColor = UIColor(red: 34/255.0, green: 34/255.0, blue: 34/255.0, alpha: 1.0)
         } else {
-            menuLabel.textColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0)
+            menuLabel.textColor = UIColor(red: 153/255.0, green: 153/255.0, blue: 153/255.0, alpha: 1.0)
         }
     }
     

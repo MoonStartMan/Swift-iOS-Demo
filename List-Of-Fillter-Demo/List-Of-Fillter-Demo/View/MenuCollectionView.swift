@@ -7,7 +7,11 @@
 
 import UIKit
 
-class MenuCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDataSource {
+class MenuCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    /// item个数(待删除)
+    let itemCount: Int = 10
+    
     /// cellID
     private let cellIdentifier: String = "fillterCellID"
     /// cell的行间距
@@ -28,7 +32,7 @@ class MenuCollectionView: UIView, UICollectionViewDelegate, UICollectionViewData
     /// layout
     var layout: UICollectionViewFlowLayout!
     /// IndexPath
-    var currentIndexPath: IndexPath? = IndexPath(item: -1, section: 0)
+    var currentIndexPath: IndexPath? = IndexPath(item: 0, section: 0)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,8 +56,7 @@ extension MenuCollectionView {
             make.width.equalTo(btnSize.width)
             make.height.equalTo(btnSize.height)
         }
-        clearBtn.backgroundColor = .systemBlue
-        clearBtn.isHidden = true
+        clearBtn.setImage(UIImage(named: "fillterClearBtn"), for: .normal)
         
         layout = UICollectionViewFlowLayout()
         layout.itemSize = itemSize
@@ -79,7 +82,7 @@ extension MenuCollectionView {
 /// MARK: collectionView delegate
 extension MenuCollectionView {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return itemCount
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -96,6 +99,10 @@ extension MenuCollectionView {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         currentIndexPath = indexPath
         collectionView.reloadData()
+        if indexPath.item < itemCount - 1 {
+            let newIndexPath = NSIndexPath(item: indexPath.item+1, section: indexPath.section) as IndexPath
+            collectionView.scrollToItem(at: newIndexPath, at: .right, animated: true)
+        }
     }
 }
 

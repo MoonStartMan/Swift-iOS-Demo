@@ -11,53 +11,70 @@ import SnapKit
 class FillterDetailCell: UICollectionViewCell {
     
     /// 图片圆角大小
-    let fillterCornerRadius: CGFloat = 5
-    /// 图片的高度
-    let fillterHeight: CGFloat = 60
-    /// 图片的边框长
-    let borderWidth: CGFloat = 1
-    /// 文字与图片距离
-    let marginTop: CGFloat = 10
+    let fillterCornerRadius: CGFloat = 10
     /// cell的文字大小
     let fontSize: CGFloat = 14
+    /// 文字框的高度
+    let textHeight: CGFloat = 18
     
+    /// 图片
     private var fillterImage: UIImageView!
-    private var fillterName: UILabel!
+    /// 文字遮罩层
+    private var fillterCover: UIView!
+    /// 文字label
+    private var fillterNameLabel: UILabel!
+    /// 文字内容
+    var fillterName: String? {
+        didSet {
+            if let name = fillterName {
+                fillterNameLabel.text = name
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.layer.cornerRadius = fillterCornerRadius
+        self.layer.masksToBounds = true
+        self.backgroundColor = .systemGray
+        
         fillterImage = UIImageView()
         self.addSubview(fillterImage)
         fillterImage.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
-            make.height.equalTo(fillterHeight)
+            make.edges.equalToSuperview()
         }
-        fillterImage.layer.cornerRadius = fillterCornerRadius
-        fillterImage.layer.masksToBounds = true
-        fillterImage.layer.borderColor = UIColor.init(red: 0 / 255.0, green: 0 / 255.0, blue: 0 / 255.0, alpha: 1.0).cgColor
-        fillterImage.layer.borderWidth = borderWidth
         
-        fillterName = UILabel()
-        self.addSubview(fillterName)
-        fillterName.snp.makeConstraints { make in
-            make.top.equalTo(fillterImage.snp.bottom).offset(marginTop)
+        fillterCover = UIView()
+        self.addSubview(fillterCover)
+        fillterCover.snp.makeConstraints { make in
+            make.bottom.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.height.equalTo(textHeight)
+        }
+        fillterCover.backgroundColor = UIColor.init(red: 255 / 255.0, green: 255 / 255.0, blue: 255 / 255.0, alpha: 0.1)
+        
+        fillterNameLabel = UILabel()
+        fillterCover.addSubview(fillterNameLabel)
+        fillterNameLabel.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.height.equalTo(fontSize)
+            make.centerY.equalToSuperview()
         }
         
-        fillterName.textColor = UIColor.init(red: 0 / 255.0, green: 0 / 255.0, blue: 0 / 255.0, alpha: 1.0)
-        fillterName.font = .systemFont(ofSize: fontSize)
-        fillterName.textAlignment = .center
+        fillterNameLabel.textColor = UIColor.init(red: 255 / 255.0, green: 255 / 255.0, blue: 255 / 255.0, alpha: 1.0)
+        fillterNameLabel.font = .systemFont(ofSize: fontSize)
+        fillterNameLabel.textAlignment = .center
     }
     
     /// 切换激活态
     func changeActive(isActive: Bool) {
         if isActive {
-            fillterImage.layer.borderColor = UIColor(red: 163/255.0, green: 69/255.0, blue: 255/255.0, alpha: 1.0).cgColor
-            fillterName.textColor = UIColor(red: 163/255.0, green: 69/255.0, blue: 255/255.0, alpha: 1.0)
+            self.layer.borderWidth = 2
+            self.layer.borderColor = UIColor.init(red: 0.102 / 255.0, green: 0.102 / 255.0, blue: 0.102 / 255.0, alpha: 1.0).cgColor
         } else {
-            fillterImage.layer.borderColor = UIColor.init(red: 0 / 255.0, green: 0 / 255.0, blue: 0 / 255.0, alpha: 1.0).cgColor
-            fillterName.textColor = UIColor.init(red: 0 / 255.0, green: 0 / 255.0, blue: 0 / 255.0, alpha: 1.0)
+            self.layer.borderWidth = 0
+            self.layer.borderColor = UIColor.init(red: 0.102 / 255.0, green: 0.102 / 255.0, blue: 0.102 / 255.0, alpha: 0).cgColor
         }
     }
     

@@ -8,13 +8,19 @@
 import UIKit
 import SnapKit
 
-class FillterDetailsCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDataSource {
+class FillterDetailsCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    /// item个数(待删除)
+    let itemCount: Int = 10
+    
     /// CellID
     private let cellIdentifier: String = "FillterDetailCellID"
     /// cell的行间距
     private let minimumLineSpacingNum: CGFloat = 10
     /// 单个item的大小
-    private let itemSize: CGSize = CGSize(width: 60, height: 84)
+    private let itemSize: CGSize = CGSize(width: 54, height: 70)
+    /// 激活状态的item大小
+    private let activeItemSize: CGSize = CGSize(width: 60, height: 80)
     /// IndexPath
     var currentIndexPath: IndexPath? = IndexPath(item: -1, section: 0)
     
@@ -56,7 +62,7 @@ extension FillterDetailsCollectionView {
 /// MARK: - UICollectionViewDelegate
 extension FillterDetailsCollectionView {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return itemCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -66,11 +72,24 @@ extension FillterDetailsCollectionView {
         } else {
             cell.changeActive(isActive: false)
         }
+        cell.fillterName = "\(indexPath.item)"
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         currentIndexPath = indexPath
         self.collectionView.reloadData()
+        if indexPath.item < itemCount - 1 {
+            let newIndexPath = NSIndexPath(item: indexPath.item+1, section: indexPath.section) as IndexPath
+            collectionView.scrollToItem(at: newIndexPath, at: .right, animated: true)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if currentIndexPath == indexPath {
+            return activeItemSize
+        } else {
+            return itemSize
+        }
     }
 }

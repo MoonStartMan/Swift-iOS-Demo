@@ -20,9 +20,8 @@ class ViewController: UIViewController {
         fillerListView.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
             make.left.right.equalToSuperview()
-            make.height.equalTo(250)
+            make.height.equalTo(215)
         }
-        fillerListView.backgroundColor = .systemGray6
     }
 
 

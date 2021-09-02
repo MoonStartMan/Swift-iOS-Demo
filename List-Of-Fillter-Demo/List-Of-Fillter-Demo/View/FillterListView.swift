@@ -15,35 +15,39 @@ class FillterListView: UIView {
     /// 详情列表
     private var fillterCollectionView: FillterDetailsCollectionView!
     /// 距离父视图的左右距离
-    private let margin: CGFloat = 10
+    private let margin: CGFloat = 16
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        fillterCollectionView = FillterDetailsCollectionView(frame: .zero)
-        self.addSubview(fillterCollectionView)
-        fillterCollectionView.snp.makeConstraints { make in
-            make.bottom.equalToSuperview()
-            make.left.equalToSuperview().offset(margin)
-            make.right.equalToSuperview().offset(-margin)
-            make.height.equalTo(84)
-        }
-        
-        menuCollectionView = MenuCollectionView(frame: .zero)
-        self.addSubview(menuCollectionView)
-        menuCollectionView.snp.makeConstraints { make in
-            make.bottom.equalTo(fillterCollectionView.snp.top).offset(-20)
-            make.left.equalToSuperview().offset(margin)
-            make.right.equalToSuperview().offset(-margin)
-            make.height.equalTo(60)
-        }
-        
+        /// 顶部控制栏
         fillterControView = FillterControlView(frame: .zero)
         self.addSubview(fillterControView)
         fillterControView.snp.makeConstraints { make in
-            make.bottom.equalTo(menuCollectionView.snp.top).offset(-20)
-            make.left.right.equalToSuperview()
+            make.top.equalToSuperview()
+            make.left.equalToSuperview().offset(margin)
+            make.right.equalToSuperview().offset(-margin)
             make.height.equalTo(40)
+        }
+        
+        /// 菜单列表
+        menuCollectionView = MenuCollectionView(frame: .zero)
+        self.addSubview(menuCollectionView)
+        menuCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(fillterControView.snp.bottom).offset(16)
+            make.left.equalToSuperview().offset(margin)
+            make.right.equalToSuperview().offset(-margin)
+            make.height.equalTo(20)
+        }
+        
+        /// 详情列表
+        fillterCollectionView = FillterDetailsCollectionView(frame: .zero)
+        self.addSubview(fillterCollectionView)
+        fillterCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(menuCollectionView.snp.bottom).offset(16)
+            make.left.equalToSuperview().offset(margin)
+            make.right.equalToSuperview().offset(-margin)
+            make.height.equalTo(84)
         }
     }
     
