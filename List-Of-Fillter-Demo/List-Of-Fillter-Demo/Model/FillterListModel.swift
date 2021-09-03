@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FillterListModelItem: NSObject {
+class FillterListModelItem: Decodable {
     /// id
     var id: String = ""
     /// 是否选中
@@ -16,7 +16,7 @@ class FillterListModelItem: NSObject {
     var fillterName: String = ""
 }
 
-class FillterListModel: NSObject {
+class FillterListModel: Decodable {
     /// id
     var id: String = ""
     /// 滤镜标题
@@ -24,3 +24,4 @@ class FillterListModel: NSObject {
     /// 滤镜子列表
     var fillterList: [FillterListModelItem]  = []
 }
+

@@ -114,10 +114,10 @@
 		3098FF7B26DFB84D00023351 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3098FF7926DFB84800023351 /* FillterListView.swift */,
 				3098FF7C26DFBB7800023351 /* FillterControlView.swift */,
 				3098FF6F26DF522400023351 /* MenuCollectionView.swift */,
 				3098FF7326DFA5E400023351 /* FillterDetailsCollectionView.swift */,
-				3098FF7926DFB84800023351 /* FillterListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

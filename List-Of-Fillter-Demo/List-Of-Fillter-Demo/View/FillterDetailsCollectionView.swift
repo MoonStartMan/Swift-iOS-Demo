@@ -9,9 +9,8 @@ import UIKit
 import SnapKit
 
 class FillterDetailsCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    /// item个数(待删除)
-    let itemCount: Int = 10
+    /// 滤镜详情Model
+    var fillterDetailsModel: [FillterListModelItem] = []
     
     /// CellID
     private let cellIdentifier: String = "FillterDetailCellID"
@@ -62,7 +61,7 @@ extension FillterDetailsCollectionView {
 /// MARK: - UICollectionViewDelegate
 extension FillterDetailsCollectionView {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemCount
+        return fillterDetailsModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -72,16 +71,17 @@ extension FillterDetailsCollectionView {
         } else {
             cell.changeActive(isActive: false)
         }
-        cell.fillterName = "\(indexPath.item)"
+        /// FIXME 
+        cell.fillterName = fillterDetailsModel[indexPath.item].fillterName
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         currentIndexPath = indexPath
         self.collectionView.reloadData()
-        if indexPath.item < itemCount - 1 {
-            let newIndexPath = NSIndexPath(item: indexPath.item+1, section: indexPath.section) as IndexPath
-            collectionView.scrollToItem(at: newIndexPath, at: .right, animated: true)
+        if indexPath.item < fillterDetailsModel.count - 1 {
+            let newIndexPath = NSIndexPath(item: indexPath.item, section: indexPath.section) as IndexPath
+            collectionView.scrollToItem(at: newIndexPath, at: .centeredHorizontally, animated: true)
         }
     }
     

@@ -9,21 +9,26 @@ import UIKit
 
 class MenuCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    /// item个数(待删除)
-    let itemCount: Int = 10
-    
+    /// 闭包
+    typealias fillterMenuClickBlock = (_ index: Int) -> Void
     /// cellID
     private let cellIdentifier: String = "fillterCellID"
     /// cell的行间距
     private let minimumLineSpacingNum: CGFloat = 10
-    /// 单个item的大小
-    private let itemSize: CGSize = CGSize(width: 60, height: 30)
+    /// 单个item的最小大小
+    private let itemSize: CGSize = CGSize(width: 10, height: 12)
     /// 滤镜栏列表距离左侧按钮的距离
     private let leftMargin: CGFloat = 10
     /// 滤镜栏列表的高度
     private let collectionViewHeight: CGFloat = 40
     /// 按钮的大小
     private let btnSize: CGSize = CGSize(width: 30, height: 30)
+    
+    /// 滤镜菜单的Model
+    var menuModel: [FillterListModel] = []
+    
+    /// 点击传递闭包
+    var callBack: fillterMenuClickBlock?
     
     /// 清除按钮
     var clearBtn: UIButton!
@@ -59,7 +64,7 @@ extension MenuCollectionView {
         clearBtn.setImage(UIImage(named: "fillterClearBtn"), for: .normal)
         
         layout = UICollectionViewFlowLayout()
-        layout.itemSize = itemSize
+        layout.estimatedItemSize = itemSize
         layout.minimumLineSpacing = minimumLineSpacingNum
         layout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -82,12 +87,13 @@ extension MenuCollectionView {
 /// MARK: collectionView delegate
 extension MenuCollectionView {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemCount
+        return menuModel.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MenuCell
-        cell.menuLabel.text = "\(indexPath.item + 1)"
+        /// FIXME
+        cell.menuLabel.text = menuModel[indexPath.item].fillterTitle
         if currentIndexPath == indexPath {
             cell.changeActive(isActive: true)
         } else {
@@ -98,11 +104,11 @@ extension MenuCollectionView {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         currentIndexPath = indexPath
-        collectionView.reloadData()
-        if indexPath.item < itemCount - 1 {
-            let newIndexPath = NSIndexPath(item: indexPath.item+1, section: indexPath.section) as IndexPath
-            collectionView.scrollToItem(at: newIndexPath, at: .right, animated: true)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        if callBack != nil {
+            callBack!(indexPath.item)
         }
+        collectionView.reloadData()
     }
 }
 

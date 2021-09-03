@@ -8,6 +8,18 @@
 import UIKit
 
 class FillterListView: UIView {
+    /// 滤镜列表数据
+    var fillterListModel: [FillterListModel] = [] {
+        didSet {
+            menuCollectionView.menuModel = fillterListModel
+        }
+    }
+    /// 滤镜详情列表数据
+    var detailModel: [FillterListModelItem] = [] {
+        didSet {
+            fillterCollectionView.fillterDetailsModel = detailModel
+        }
+    }
     /// 滤镜控件
     private var fillterControView: FillterControlView!
     /// 菜单列表
@@ -38,6 +50,13 @@ class FillterListView: UIView {
             make.left.equalToSuperview().offset(margin)
             make.right.equalToSuperview().offset(-margin)
             make.height.equalTo(20)
+        }
+        
+        
+        
+        menuCollectionView.callBack = { (index: Int) -> Void in
+            self.detailModel = self.fillterListModel[index].fillterList
+            self.fillterCollectionView.collectionView.reloadData()
         }
         
         /// 详情列表
