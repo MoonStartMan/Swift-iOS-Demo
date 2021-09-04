@@ -8,18 +8,26 @@
 import UIKit
 
 class FillterListView: UIView {
+    /// 清除闭包
+    typealias clearBlock = () -> Void
+    
     /// 滤镜列表数据
     var fillterListModel: [FillterListModel] = [] {
         didSet {
             menuCollectionView.menuModel = fillterListModel
+            /// 判断越界
+            menuCollectionView.currentIndexPath = IndexPath(item: 0, section: 0)
         }
     }
     /// 滤镜详情列表数据
-    var detailModel: [FillterListModelItem] = [] {
+    private var detailModel: [FillterListModelItem] = [] {
         didSet {
             fillterCollectionView.fillterDetailsModel = detailModel
         }
     }
+    /// 滤镜详情的model
+    var detailItemModel: FillterListModelItem?
+    
     /// 滤镜控件
     private var fillterControView: FillterControlView!
     /// 菜单列表
@@ -28,6 +36,16 @@ class FillterListView: UIView {
     private var fillterCollectionView: FillterDetailsCollectionView!
     /// 距离父视图的左右距离
     private let margin: CGFloat = 16
+    
+    /// 曲线按钮点击事件
+    var curveClick: (() -> Void)?
+    /// 关键帧点击事件
+    var resetClick: (() -> Void)?
+    /// 确定点击事件
+    var determineClick: (() -> Void)?
+    
+    /// 点击清除事件
+    var clearBlock: clearBlock?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,11 +70,12 @@ class FillterListView: UIView {
             make.height.equalTo(20)
         }
         
-        
-        
+        /// 菜单列表点击的回调
         menuCollectionView.callBack = { (index: Int) -> Void in
             self.detailModel = self.fillterListModel[index].fillterList
-            self.fillterCollectionView.collectionView.reloadData()
+            self.fillterControView.selectFillterChange(isSelectFillter: false)
+            self.menuCollectionView.clearState(state: true)
+            self.fillterCollectionView.clearState()
         }
         
         /// 详情列表
@@ -68,10 +87,45 @@ class FillterListView: UIView {
             make.right.equalToSuperview().offset(-margin)
             make.height.equalTo(84)
         }
+        
+        /// 滤镜详情列表点击的回调
+        fillterCollectionView.callBack = {
+            self.fillterControView.selectFillterChange(isSelectFillter: true)
+            self.menuCollectionView.clearState(state: false)
+            self.detailItemModel = self.fillterCollectionView.fillterDetailItemModel
+            self.fillterControView.sliderDefault()
+        }
+        
+        addClickEvent()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+extension FillterListView {
+    /// 给四个按钮添加对应的点击事件以及block
+    func addClickEvent() {
+        /// 关键帧点击事件
+        fillterControView.resetBack = {
+            self.resetClick?()
+        }
+        /// 曲线按钮点击
+        fillterControView.curveBack = {
+            self.curveClick?()
+        }
+        /// 确定点击事件
+        fillterControView.determineBack = {
+            self.determineClick?()
+        }
+        
+        /// 菜单清除按钮点击的回调
+        menuCollectionView.btnCallBack = {
+            self.fillterControView.selectFillterChange(isSelectFillter: false)
+            self.fillterCollectionView.clearState()
+            self.clearBlock?()
+        }
+    }
 }

@@ -13,7 +13,7 @@ class FillterDetailCell: UICollectionViewCell {
     /// 图片圆角大小
     let fillterCornerRadius: CGFloat = 10
     /// cell的文字大小
-    let fontSize: CGFloat = 14
+    let fontSize: CGFloat = 10
     /// 文字框的高度
     let textHeight: CGFloat = 18
     
@@ -23,15 +23,14 @@ class FillterDetailCell: UICollectionViewCell {
     private var fillterCover: UIView!
     /// 文字label
     private var fillterNameLabel: UILabel!
-    /// 文字内容
-    var fillterName: String? {
+    /// model
+    var model: FillterListModelItem? {
         didSet {
-            if let name = fillterName {
-                fillterNameLabel.text = name
-            }
+            fillterNameLabel.text = model?.fillterName
+//            fillterImage.image = UIImage(named: )
         }
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         

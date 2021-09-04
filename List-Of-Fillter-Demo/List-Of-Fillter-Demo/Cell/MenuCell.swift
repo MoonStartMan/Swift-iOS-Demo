@@ -11,19 +11,27 @@ import SnapKit
 class MenuCell: UICollectionViewCell {
     
     /// 文字
-    var menuLabel: UILabel!
+    private var menuLabel: UILabel!
     /// 是否点击状态
-    var isActive: Bool?
+    private var isActive: Bool?
+    /// 文字大小
+    let fontSize: CGFloat = 12
+    /// model
+    var model: FillterListModel? {
+        didSet {
+            menuLabel.text = model?.fillterTitle
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         menuLabel = UILabel()
-        self.addSubview(menuLabel)
+        self.contentView.addSubview(menuLabel)
         menuLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         menuLabel.textColor = UIColor(red: 153/255.0, green: 153/255.0, blue: 153/255.0, alpha: 1.0)
-        menuLabel.font = UIFont(name: "Montserrat-Medium", size: 12)
+        menuLabel.font = .systemFont(ofSize: fontSize)
         menuLabel.textAlignment = .center
     }
     

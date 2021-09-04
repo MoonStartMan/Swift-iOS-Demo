@@ -24,4 +24,3 @@ class FillterListModel: Decodable {
     /// 滤镜子列表
     var fillterList: [FillterListModelItem]  = []
 }
-

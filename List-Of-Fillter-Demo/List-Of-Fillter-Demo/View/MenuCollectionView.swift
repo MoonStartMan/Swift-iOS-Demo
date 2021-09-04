@@ -7,16 +7,16 @@
 
 import UIKit
 
-class MenuCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MenuCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
-    /// 闭包
+    /// 索引闭包
     typealias fillterMenuClickBlock = (_ index: Int) -> Void
+    /// 按钮点击闭包
+    typealias btnClickBlock = () -> Void
     /// cellID
     private let cellIdentifier: String = "fillterCellID"
     /// cell的行间距
     private let minimumLineSpacingNum: CGFloat = 10
-    /// 单个item的最小大小
-    private let itemSize: CGSize = CGSize(width: 10, height: 12)
     /// 滤镜栏列表距离左侧按钮的距离
     private let leftMargin: CGFloat = 10
     /// 滤镜栏列表的高度
@@ -30,6 +30,8 @@ class MenuCollectionView: UIView, UICollectionViewDelegate, UICollectionViewData
     /// 点击传递闭包
     var callBack: fillterMenuClickBlock?
     
+    /// 传递按钮点击事件闭包
+    var btnCallBack: btnClickBlock?
     /// 清除按钮
     var clearBtn: UIButton!
     /// 滤镜列表
@@ -37,7 +39,14 @@ class MenuCollectionView: UIView, UICollectionViewDelegate, UICollectionViewData
     /// layout
     var layout: UICollectionViewFlowLayout!
     /// IndexPath
-    var currentIndexPath: IndexPath? = IndexPath(item: 0, section: 0)
+    var currentIndexPath: IndexPath? = IndexPath(item: 0, section: 0) {
+        didSet {
+            if let indexPath = currentIndexPath {
+                callBack?(indexPath.item)
+                collectionView.reloadData()
+            }
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,9 +71,10 @@ extension MenuCollectionView {
             make.height.equalTo(btnSize.height)
         }
         clearBtn.setImage(UIImage(named: "fillterClearBtn"), for: .normal)
+        clearBtn.addTarget(self, action: #selector(clearSelect), for: .touchUpInside)
+        clearState(state: true)
         
         layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = itemSize
         layout.minimumLineSpacing = minimumLineSpacingNum
         layout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -92,8 +102,7 @@ extension MenuCollectionView {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MenuCell
-        /// FIXME
-        cell.menuLabel.text = menuModel[indexPath.item].fillterTitle
+        cell.model = menuModel[indexPath.item]
         if currentIndexPath == indexPath {
             cell.changeActive(isActive: true)
         } else {
@@ -105,10 +114,13 @@ extension MenuCollectionView {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         currentIndexPath = indexPath
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        if callBack != nil {
-            callBack!(indexPath.item)
-        }
-        collectionView.reloadData()
+    }
+    
+    /// 设置每个cell的大小
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let str = menuModel[indexPath.item].fillterTitle
+        let width = textAutoWidth(str: str, height: 20, font: .systemFont(ofSize: 12.0))
+        return CGSize(width: width + 5, height: 20)
     }
 }
 
@@ -116,6 +128,35 @@ extension MenuCollectionView {
 /// MARK: btn点击事件
 extension MenuCollectionView {
     @objc func clearSelect() {
-        clearBtn.isHidden = true
+        clearState(state: true)
+        btnCallBack?()
     }
 }
+
+/// 清除函数
+extension MenuCollectionView {
+    func clearState(state: Bool) {
+        if (state) {
+            clearBtn.isEnabled = false
+        } else {
+            clearBtn.isEnabled = true
+        }
+    }
+}
+
+extension MenuCollectionView {
+    func textAutoWidth(str: String, height:CGFloat, font:UIFont) ->CGFloat{
+
+        let string = str as NSString
+
+        let origin = NSStringDrawingOptions.usesLineFragmentOrigin
+
+        let lead = NSStringDrawingOptions.usesFontLeading
+
+        let rect = string.boundingRect(with:CGSize(width:0, height: height), options: [origin,lead], attributes: [NSAttributedString.Key.font:font], context:nil)
+
+        return rect.width
+
+    }
+}
+

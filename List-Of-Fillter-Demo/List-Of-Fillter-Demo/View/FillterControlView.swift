@@ -8,6 +8,14 @@
 import UIKit
 
 class FillterControlView: UIView {
+    /// 曲线闭包
+    typealias curveBlock = () -> Void
+    /// 关键帧闭包
+    typealias resetBlock = () -> Void
+    /// 确定闭包
+    typealias determineBlock = () -> Void
+    /// 清除闭包
+    typealias clearBlock = () -> Void
     /// 按钮的边长
     let btnWidth: CGFloat = 40
     /// slider的宽度
@@ -25,24 +33,32 @@ class FillterControlView: UIView {
     /// slider滑块图片
     let sliderImage = UIImage(named: "fillterSliderBtn")
     
+    /// 曲线按钮的点击事件
+    var curveBack: curveBlock?
+    /// 关键帧的点击事件
+    var resetBack: resetBlock?
+    /// 打钩点击事件
+    var determineBack: determineBlock?
+    
     /// 不可点击状态下的线条
-    var disableView: UIView!
+    private var disableView: UIView!
     /// 滑动条
-    var slider: UISlider!
+    private var slider: UISlider!
     /// 关键帧按钮
-    var keyFramesBtn: FillterBtn!
+    private var keyFramesBtn: FillterBtn!
     /// 曲线按钮
-    var curveBtn: FillterBtn!
+    private var curveBtn: FillterBtn!
     /// 确定按钮
-    var determineBtn: FillterBtn!
+    private var determineBtn: FillterBtn!
     /// 顶部数值视图
-    var valueView: FillterValueView!
+    private var valueView: FillterValueView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
         /// 初始化为不可点击状态
         selectFillterChange(isSelectFillter: false)
+        addClickEvent()
     }
     
     required init?(coder: NSCoder) {
@@ -60,7 +76,7 @@ extension FillterControlView {
             make.centerY.equalToSuperview()
             make.width.height.equalTo(btnWidth)
         }
-        keyFramesBtn.imageName = "fillterCurveBtn"
+        keyFramesBtn.imageName = "fillterResetBtn"
         
         curveBtn = FillterBtn(frame: .zero)
         self.addSubview(curveBtn)
@@ -69,7 +85,7 @@ extension FillterControlView {
             make.centerY.equalToSuperview()
             make.width.height.equalTo(btnWidth)
         }
-        curveBtn.imageName = "fillterResetBtn"
+        curveBtn.imageName = "fillterCurveBtn"
         
         disableView = UIView(frame: .zero)
         self.addSubview(disableView)
@@ -148,7 +164,7 @@ extension FillterControlView {
 
 /// MARK: - 点击状态函数
 extension FillterControlView {
-    //  点击滤镜后的切换
+    ///  点击滤镜菜单后的切换
     func selectFillterChange(isSelectFillter: Bool) {
         if isSelectFillter {
             keyFramesBtn.isEnabled = true
@@ -162,6 +178,37 @@ extension FillterControlView {
             determineBtn.isEnabled = false
             disableView.isHidden = false
             slider.isHidden = true
+            sliderDefault()
         }
+    }
+    
+    ///  Slider数值恢复默认值
+    func sliderDefault() {
+        slider.setValue(sliderDefalutValue, animated: true)
+    }
+}
+
+/// MARK: - 点击事件函数
+extension FillterControlView {
+    /// 给按钮添加点击事件
+    func addClickEvent() {
+        self.keyFramesBtn.addTarget(self, action: #selector(resetClick), for: .touchUpInside)
+        self.curveBtn.addTarget(self, action: #selector(curveClick(sender:)), for: .touchUpInside)
+        self.determineBtn.addTarget(self, action: #selector(determineClick), for: .touchUpInside)
+    }
+    
+    /// 关键帧点击闭包
+    @objc func resetClick() {
+        resetBack?()
+    }
+    
+    /// 曲线点击闭包
+    @objc func curveClick(sender: UIButton) {
+        curveBack?()
+    }
+    
+    /// 确定点击闭包
+    @objc func determineClick() {
+        determineBack?()
     }
 }

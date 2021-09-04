@@ -9,9 +9,12 @@ import UIKit
 import SnapKit
 
 class FillterDetailsCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    /// 点击滤镜的闭包
+    typealias fillterClickBlock = () -> Void
     /// 滤镜详情Model
     var fillterDetailsModel: [FillterListModelItem] = []
-    
+    /// 滤镜详情单个的model
+    var fillterDetailItemModel: FillterListModelItem? = nil
     /// CellID
     private let cellIdentifier: String = "FillterDetailCellID"
     /// cell的行间距
@@ -22,6 +25,9 @@ class FillterDetailsCollectionView: UIView, UICollectionViewDelegate, UICollecti
     private let activeItemSize: CGSize = CGSize(width: 60, height: 80)
     /// IndexPath
     var currentIndexPath: IndexPath? = IndexPath(item: -1, section: 0)
+    
+    /// 闭包返回值
+    var callBack: fillterClickBlock?
     
     var collectionView: UICollectionView!
     var layout: UICollectionViewFlowLayout!
@@ -71,8 +77,7 @@ extension FillterDetailsCollectionView {
         } else {
             cell.changeActive(isActive: false)
         }
-        /// FIXME 
-        cell.fillterName = fillterDetailsModel[indexPath.item].fillterName
+        cell.model = fillterDetailsModel[indexPath.item]
         return cell
     }
     
@@ -80,9 +85,12 @@ extension FillterDetailsCollectionView {
         currentIndexPath = indexPath
         self.collectionView.reloadData()
         if indexPath.item < fillterDetailsModel.count - 1 {
-            let newIndexPath = NSIndexPath(item: indexPath.item, section: indexPath.section) as IndexPath
+            let newIndexPath = IndexPath(item: indexPath.item + 1, section: indexPath.section)
             collectionView.scrollToItem(at: newIndexPath, at: .centeredHorizontally, animated: true)
         }
+        /// 获取单个滤镜的model
+        fillterDetailItemModel = fillterDetailsModel[indexPath.item]
+        callBack?()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -91,5 +99,13 @@ extension FillterDetailsCollectionView {
         } else {
             return itemSize
         }
+    }
+}
+
+extension FillterDetailsCollectionView {
+    /// 清除滤镜选中态
+    func clearState() {
+        currentIndexPath = IndexPath(item: -1, section: 0)
+        collectionView.reloadData()
     }
 }

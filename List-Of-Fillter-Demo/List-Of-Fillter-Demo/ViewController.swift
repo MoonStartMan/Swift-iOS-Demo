@@ -25,6 +25,18 @@ class ViewController: UIViewController {
             make.height.equalTo(215)
         }
         
+        fillerListView.resetClick = {
+            print("点击了关键帧")
+        }
+        
+        fillerListView.curveClick = {
+            print("点击了曲线")
+        }
+        
+        fillerListView.determineClick = {
+            print("点击了确定")
+        }
+        
         ObtainData()
         
         /// 获取数据
