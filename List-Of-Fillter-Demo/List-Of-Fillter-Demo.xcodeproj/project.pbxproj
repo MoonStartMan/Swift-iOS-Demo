@@ -12,16 +12,16 @@
 		3098FF6026DF247500023351 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098FF5F26DF247500023351 /* ViewController.swift */; };
 		3098FF6526DF247600023351 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3098FF6426DF247600023351 /* Assets.xcassets */; };
 		3098FF6826DF247600023351 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3098FF6626DF247600023351 /* LaunchScreen.storyboard */; };
-		3098FF7026DF522400023351 /* MenuCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098FF6F26DF522400023351 /* MenuCollectionView.swift */; };
-		3098FF7226DF569F00023351 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098FF7126DF569F00023351 /* MenuCell.swift */; };
-		3098FF7426DFA5E400023351 /* FillterDetailsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098FF7326DFA5E400023351 /* FillterDetailsCollectionView.swift */; };
+		3098FF7026DF522400023351 /* FillterListMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098FF6F26DF522400023351 /* FillterListMenuView.swift */; };
+		3098FF7226DF569F00023351 /* FillterMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098FF7126DF569F00023351 /* FillterMenuCell.swift */; };
+		3098FF7426DFA5E400023351 /* FillterListDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098FF7326DFA5E400023351 /* FillterListDetailsView.swift */; };
 		3098FF7626DFA8AA00023351 /* FillterDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098FF7526DFA8AA00023351 /* FillterDetailCell.swift */; };
 		3098FF7A26DFB84800023351 /* FillterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098FF7926DFB84800023351 /* FillterListView.swift */; };
-		3098FF7D26DFBB7800023351 /* FillterControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098FF7C26DFBB7800023351 /* FillterControlView.swift */; };
+		3098FF7D26DFBB7800023351 /* FillterListControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098FF7C26DFBB7800023351 /* FillterListControlView.swift */; };
 		30BA85AA26E09EC800B8405D /* FillterListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BA85A926E09EC800B8405D /* FillterListModel.swift */; };
 		30BA85AF26E0A13A00B8405D /* FillterMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BA85AE26E0A13A00B8405D /* FillterMockData.json */; };
-		30BA85B226E0B73C00B8405D /* FillterBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BA85B126E0B73C00B8405D /* FillterBtn.swift */; };
-		30BA85B426E0C3F900B8405D /* FillterValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BA85B326E0C3F900B8405D /* FillterValueView.swift */; };
+		30BA85B226E0B73C00B8405D /* FillterListBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BA85B126E0B73C00B8405D /* FillterListBtn.swift */; };
+		30BA85B426E0C3F900B8405D /* FillterListValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BA85B326E0C3F900B8405D /* FillterListValueView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,16 +32,16 @@
 		3098FF6426DF247600023351 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3098FF6726DF247600023351 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3098FF6926DF247600023351 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3098FF6F26DF522400023351 /* MenuCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionView.swift; sourceTree = "<group>"; };
-		3098FF7126DF569F00023351 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
-		3098FF7326DFA5E400023351 /* FillterDetailsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillterDetailsCollectionView.swift; sourceTree = "<group>"; };
+		3098FF6F26DF522400023351 /* FillterListMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillterListMenuView.swift; sourceTree = "<group>"; };
+		3098FF7126DF569F00023351 /* FillterMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillterMenuCell.swift; sourceTree = "<group>"; };
+		3098FF7326DFA5E400023351 /* FillterListDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillterListDetailsView.swift; sourceTree = "<group>"; };
 		3098FF7526DFA8AA00023351 /* FillterDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillterDetailCell.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		3098FF7926DFB84800023351 /* FillterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillterListView.swift; sourceTree = "<group>"; };
-		3098FF7C26DFBB7800023351 /* FillterControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillterControlView.swift; sourceTree = "<group>"; };
+		3098FF7C26DFBB7800023351 /* FillterListControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillterListControlView.swift; sourceTree = "<group>"; };
 		30BA85A926E09EC800B8405D /* FillterListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillterListModel.swift; sourceTree = "<group>"; };
 		30BA85AE26E0A13A00B8405D /* FillterMockData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FillterMockData.json; sourceTree = "<group>"; };
-		30BA85B126E0B73C00B8405D /* FillterBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillterBtn.swift; sourceTree = "<group>"; };
-		30BA85B326E0C3F900B8405D /* FillterValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillterValueView.swift; sourceTree = "<group>"; };
+		30BA85B126E0B73C00B8405D /* FillterListBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillterListBtn.swift; sourceTree = "<group>"; };
+		30BA85B326E0C3F900B8405D /* FillterListValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillterListValueView.swift; sourceTree = "<group>"; };
 		83198BC235AB8E88ACBA79D4 /* Pods-List-Of-Fillter-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-List-Of-Fillter-Demo.debug.xcconfig"; path = "Target Support Files/Pods-List-Of-Fillter-Demo/Pods-List-Of-Fillter-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		92FCF804368E4C1454FCE487 /* Pods_List_Of_Fillter_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_List_Of_Fillter_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -96,7 +96,7 @@
 		3098FF7726DFB7C500023351 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				3098FF7126DF569F00023351 /* MenuCell.swift */,
+				3098FF7126DF569F00023351 /* FillterMenuCell.swift */,
 				3098FF7526DFA8AA00023351 /* FillterDetailCell.swift */,
 			);
 			path = Cell;
@@ -105,8 +105,8 @@
 		3098FF7826DFB7CF00023351 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				30BA85B126E0B73C00B8405D /* FillterBtn.swift */,
-				30BA85B326E0C3F900B8405D /* FillterValueView.swift */,
+				30BA85B126E0B73C00B8405D /* FillterListBtn.swift */,
+				30BA85B326E0C3F900B8405D /* FillterListValueView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -115,9 +115,9 @@
 			isa = PBXGroup;
 			children = (
 				3098FF7926DFB84800023351 /* FillterListView.swift */,
-				3098FF7C26DFBB7800023351 /* FillterControlView.swift */,
-				3098FF6F26DF522400023351 /* MenuCollectionView.swift */,
-				3098FF7326DFA5E400023351 /* FillterDetailsCollectionView.swift */,
+				3098FF7C26DFBB7800023351 /* FillterListControlView.swift */,
+				3098FF6F26DF522400023351 /* FillterListMenuView.swift */,
+				3098FF7326DFA5E400023351 /* FillterListDetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -269,16 +269,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30BA85B426E0C3F900B8405D /* FillterValueView.swift in Sources */,
+				30BA85B426E0C3F900B8405D /* FillterListValueView.swift in Sources */,
 				30BA85AA26E09EC800B8405D /* FillterListModel.swift in Sources */,
 				3098FF7A26DFB84800023351 /* FillterListView.swift in Sources */,
-				3098FF7D26DFBB7800023351 /* FillterControlView.swift in Sources */,
+				3098FF7D26DFBB7800023351 /* FillterListControlView.swift in Sources */,
 				3098FF6026DF247500023351 /* ViewController.swift in Sources */,
 				3098FF7626DFA8AA00023351 /* FillterDetailCell.swift in Sources */,
-				3098FF7426DFA5E400023351 /* FillterDetailsCollectionView.swift in Sources */,
-				3098FF7026DF522400023351 /* MenuCollectionView.swift in Sources */,
-				30BA85B226E0B73C00B8405D /* FillterBtn.swift in Sources */,
-				3098FF7226DF569F00023351 /* MenuCell.swift in Sources */,
+				3098FF7426DFA5E400023351 /* FillterListDetailsView.swift in Sources */,
+				3098FF7026DF522400023351 /* FillterListMenuView.swift in Sources */,
+				30BA85B226E0B73C00B8405D /* FillterListBtn.swift in Sources */,
+				3098FF7226DF569F00023351 /* FillterMenuCell.swift in Sources */,
 				3098FF5C26DF247500023351 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,21 +8,22 @@
 import UIKit
 import SnapKit
 
-class FillterDetailsCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+/// CellID
+fileprivate let cellIdentifier: String = "FillterDetailCellID"
+/// cell的行间距
+fileprivate let minimumLineSpacingNum: CGFloat = 10
+/// 单个item的大小
+fileprivate let itemSize: CGSize = CGSize(width: 54, height: 70)
+/// 激活状态的item大小
+fileprivate let activeItemSize: CGSize = CGSize(width: 60, height: 80)
+
+class FillterListDetailsView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     /// 点击滤镜的闭包
     typealias fillterClickBlock = () -> Void
     /// 滤镜详情Model
     var fillterDetailsModel: [FillterListModelItem] = []
     /// 滤镜详情单个的model
     var fillterDetailItemModel: FillterListModelItem? = nil
-    /// CellID
-    private let cellIdentifier: String = "FillterDetailCellID"
-    /// cell的行间距
-    private let minimumLineSpacingNum: CGFloat = 10
-    /// 单个item的大小
-    private let itemSize: CGSize = CGSize(width: 54, height: 70)
-    /// 激活状态的item大小
-    private let activeItemSize: CGSize = CGSize(width: 60, height: 80)
     /// IndexPath
     var currentIndexPath: IndexPath? = IndexPath(item: -1, section: 0)
     
@@ -44,7 +45,7 @@ class FillterDetailsCollectionView: UIView, UICollectionViewDelegate, UICollecti
 }
 
 /// MARK: - UIConfig
-extension FillterDetailsCollectionView {
+extension FillterListDetailsView {
     func uiConfig() {
         layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = minimumLineSpacingNum
@@ -65,7 +66,7 @@ extension FillterDetailsCollectionView {
 }
 
 /// MARK: - UICollectionViewDelegate
-extension FillterDetailsCollectionView {
+extension FillterListDetailsView {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fillterDetailsModel.count
     }
@@ -102,7 +103,7 @@ extension FillterDetailsCollectionView {
     }
 }
 
-extension FillterDetailsCollectionView {
+extension FillterListDetailsView {
     /// 清除滤镜选中态
     func clearState() {
         currentIndexPath = IndexPath(item: -1, section: 0)

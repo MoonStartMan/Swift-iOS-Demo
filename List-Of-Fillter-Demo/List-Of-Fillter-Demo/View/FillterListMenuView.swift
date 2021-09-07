@@ -7,24 +7,23 @@
 
 import UIKit
 
-class MenuCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+/// cellID
+fileprivate let cellIdentifier: String = "fillterCellID"
+/// cell的行间距
+fileprivate let minimumLineSpacingNum: CGFloat = 10
+/// 滤镜栏列表距离左侧按钮的距离
+fileprivate let leftMargin: CGFloat = 10
+/// 滤镜栏列表的高度
+fileprivate let collectionViewHeight: CGFloat = 40
+/// 按钮的大小
+fileprivate let btnSize: CGSize = CGSize(width: 30, height: 30)
+
+class FillterListMenuView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     /// 索引闭包
     typealias fillterMenuClickBlock = (_ index: Int) -> Void
-    /// cellID
-    private let cellIdentifier: String = "fillterCellID"
-    /// cell的行间距
-    private let minimumLineSpacingNum: CGFloat = 10
-    /// 滤镜栏列表距离左侧按钮的距离
-    private let leftMargin: CGFloat = 10
-    /// 滤镜栏列表的高度
-    private let collectionViewHeight: CGFloat = 40
-    /// 按钮的大小
-    private let btnSize: CGSize = CGSize(width: 30, height: 30)
-    
     /// 滤镜菜单的Model
     var menuModel: [FillterListModel] = []
-    
     /// 点击传递索引闭包
     var callBack: fillterMenuClickBlock?
     /// 滤镜列表
@@ -52,7 +51,7 @@ class MenuCollectionView: UIView, UICollectionViewDelegate, UICollectionViewData
 }
 
 /// MARK: collectionView UIConfig
-extension MenuCollectionView {
+extension FillterListMenuView {
     func uiConfig() {
         layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = minimumLineSpacingNum
@@ -68,20 +67,20 @@ extension MenuCollectionView {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(MenuCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.register(FillterMenuCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.backgroundColor = .clear
         collectionView.showsHorizontalScrollIndicator = false
     }
 }
 
 /// MARK: collectionView delegate
-extension MenuCollectionView {
+extension FillterListMenuView {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return menuModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MenuCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! FillterMenuCell
         cell.model = menuModel[indexPath.item]
         if currentIndexPath == indexPath {
             cell.changeActive(isActive: true)
@@ -104,7 +103,7 @@ extension MenuCollectionView {
     }
 }
 
-extension MenuCollectionView {
+extension FillterListMenuView {
     func textAutoWidth(str: String, height:CGFloat, font:UIFont) ->CGFloat{
         let string = str
         let origin = NSStringDrawingOptions.usesLineFragmentOrigin

@@ -7,29 +7,30 @@
 
 import UIKit
 
-class FillterControlView: UIView {
-    /// 清除闭包
+/// 按钮的边长
+fileprivate let btnWidth: CGFloat = 40
+/// slider的最小值
+fileprivate let sliderMinValue: Float = 0
+/// slider的最大值
+fileprivate let sliderMaxValue: Float = 100
+/// slider的默认值
+fileprivate let sliderDefalutValue: Float = 0
+/// slider滑动部分颜色
+fileprivate let minimumColor = UIColor.init(red: 209 / 255.0, green: 255 / 255.0, blue: 24 / 255.0, alpha: 1.0)
+/// slider底色
+fileprivate let maximumColor = UIColor.init(red: 204 / 255.0, green: 204 / 255.0, blue: 204 / 255.0, alpha: 1.0)
+/// slider滑块图片
+fileprivate let sliderImage = UIImage(named: "fillterSliderBtn")
+/// slider距离按钮左右的距离
+fileprivate let sliderMargin: CGFloat = 24
+/// 按钮距离父视图左右的距离
+fileprivate let btnMargin: CGFloat = 16
+
+class FillterListControlView: UIView {
+    /// 清除按钮闭包
     typealias clearBlock = () -> Void
-    /// 确定闭包
+    /// 确定按钮闭包
     typealias determineBlock = () -> Void
-    /// 按钮的边长
-    let btnWidth: CGFloat = 40
-    /// slider的最小值
-    let sliderMinValue: Float = 0
-    /// slider的最大值
-    let sliderMaxValue: Float = 100
-    /// slider的默认值
-    let sliderDefalutValue: Float = 0
-    /// slider滑动部分颜色
-    let minimumColor = UIColor.init(red: 209 / 255.0, green: 255 / 255.0, blue: 24 / 255.0, alpha: 1.0)
-    /// slider底色
-    let maximumColor = UIColor.init(red: 204 / 255.0, green: 204 / 255.0, blue: 204 / 255.0, alpha: 1.0)
-    /// slider滑块图片
-    let sliderImage = UIImage(named: "fillterSliderBtn")
-    /// slider距离按钮左右的距离
-    let sliderMargin: CGFloat = 24
-    /// 按钮距离父视图左右的距离
-    let btnMargin: CGFloat = 16
     
     /// 清除按钮的点击事件
     var clearBack: clearBlock?
@@ -41,11 +42,11 @@ class FillterControlView: UIView {
     /// 滑动条
     private var slider: UISlider!
     /// 清除按钮
-    private var clearBtn: FillterBtn!
+    private var clearBtn: FillterListBtn!
     /// 确定按钮
-    private var determineBtn: FillterBtn!
+    private var determineBtn: FillterListBtn!
     /// 顶部数值视图
-    private var valueView: FillterValueView!
+    private var valueView: FillterListValueView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -61,9 +62,9 @@ class FillterControlView: UIView {
     
 }
 
-extension FillterControlView {
+extension FillterListControlView {
     func setUI() {
-        clearBtn = FillterBtn(frame: .zero)
+        clearBtn = FillterListBtn(frame: .zero)
         self.addSubview(clearBtn)
         clearBtn.snp.makeConstraints { make in
             make.left.equalToSuperview()
@@ -72,7 +73,7 @@ extension FillterControlView {
         }
         clearBtn.imageName = "fillterClearBtn"
         
-        determineBtn = FillterBtn(frame: .zero)
+        determineBtn = FillterListBtn(frame: .zero)
         self.addSubview(determineBtn)
         determineBtn.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-btnMargin)
@@ -116,7 +117,7 @@ extension FillterControlView {
         //  修改控制器图片
         slider.setThumbImage(sliderImage, for: .normal)
         
-        valueView = FillterValueView(frame: .zero)
+        valueView = FillterListValueView(frame: .zero)
         self.addSubview(valueView)
         valueView.snp.makeConstraints { make in
             make.left.equalTo(slider.snp.left).offset(-21)
@@ -130,7 +131,7 @@ extension FillterControlView {
 
 
 /// MARK: - Slider滑动
-extension FillterControlView {
+extension FillterListControlView {
     //  MARK: - sliderValueChange
     @objc func sliderValueChange(slider: UISlider) {
         let value = Int(slider.value)
@@ -149,7 +150,7 @@ extension FillterControlView {
 }
 
 /// MARK: - 点击状态函数
-extension FillterControlView {
+extension FillterListControlView {
     ///  点击滤镜菜单后的切换
     func selectFillterChange(isSelectFillter: Bool) {
         if isSelectFillter {
@@ -173,7 +174,7 @@ extension FillterControlView {
 }
 
 /// MARK: - 点击事件函数
-extension FillterControlView {
+extension FillterListControlView {
     /// 给按钮添加点击事件
     func addClickEvent() {
         self.clearBtn.addTarget(self, action: #selector(clearClick), for: .touchUpInside)

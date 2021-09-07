@@ -8,14 +8,15 @@
 import UIKit
 import SnapKit
 
-class MenuCell: UICollectionViewCell {
+/// 文字大小
+fileprivate let fontSize: CGFloat = 12
+
+class FillterMenuCell: UICollectionViewCell {
     
     /// 文字
     private var menuLabel: UILabel!
     /// 是否点击状态
     private var isActive: Bool?
-    /// 文字大小
-    let fontSize: CGFloat = 12
     /// model
     var model: FillterListModel? {
         didSet {

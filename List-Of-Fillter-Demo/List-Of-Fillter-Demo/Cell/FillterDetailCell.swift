@@ -9,15 +9,14 @@ import UIKit
 import SnapKit
 import Kingfisher
 
+/// 图片圆角大小
+fileprivate let fillterCornerRadius: CGFloat = 10
+/// cell的文字大小
+fileprivate let fontSize: CGFloat = 10
+/// 文字框的高度
+fileprivate let textHeight: CGFloat = 18
+
 class FillterDetailCell: UICollectionViewCell {
-    
-    /// 图片圆角大小
-    let fillterCornerRadius: CGFloat = 10
-    /// cell的文字大小
-    let fontSize: CGFloat = 10
-    /// 文字框的高度
-    let textHeight: CGFloat = 18
-    
     /// 状态栏覆盖层
     private var coverView: UIView!
     /// 状态栏文字

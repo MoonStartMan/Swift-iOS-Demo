@@ -7,6 +7,9 @@
 
 import UIKit
 
+/// 距离父视图的左右距离
+fileprivate let margin: CGFloat = 16
+
 class FillterListView: UIView {
     /// 清除闭包
     typealias clearBlock = () -> Void
@@ -29,13 +32,11 @@ class FillterListView: UIView {
     var detailItemModel: FillterListModelItem?
     
     /// 滤镜控件
-    private var fillterControView: FillterControlView!
+    private var fillterControView: FillterListControlView!
     /// 菜单列表
-    private var menuCollectionView: MenuCollectionView!
+    private var menuCollectionView: FillterListMenuView!
     /// 详情列表
-    private var fillterCollectionView: FillterDetailsCollectionView!
-    /// 距离父视图的左右距离
-    private let margin: CGFloat = 16
+    private var fillterCollectionView: FillterListDetailsView!
     
     /// 清除点击事件
     var clearClick: (() -> Void)?
@@ -49,7 +50,7 @@ class FillterListView: UIView {
         super.init(frame: frame)
         
         /// 顶部控制栏
-        fillterControView = FillterControlView(frame: .zero)
+        fillterControView = FillterListControlView(frame: .zero)
         self.addSubview(fillterControView)
         fillterControView.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -59,7 +60,7 @@ class FillterListView: UIView {
         }
         
         /// 菜单列表
-        menuCollectionView = MenuCollectionView(frame: .zero)
+        menuCollectionView = FillterListMenuView(frame: .zero)
         self.addSubview(menuCollectionView)
         menuCollectionView.snp.makeConstraints { make in
             make.top.equalTo(fillterControView.snp.bottom).offset(16)
@@ -76,7 +77,7 @@ class FillterListView: UIView {
         }
         
         /// 详情列表
-        fillterCollectionView = FillterDetailsCollectionView(frame: .zero)
+        fillterCollectionView = FillterListDetailsView(frame: .zero)
         self.addSubview(fillterCollectionView)
         fillterCollectionView.snp.makeConstraints { make in
             make.top.equalTo(menuCollectionView.snp.bottom).offset(16)

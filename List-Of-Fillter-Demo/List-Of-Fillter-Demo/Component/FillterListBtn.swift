@@ -7,13 +7,14 @@
 
 import UIKit
 
-class FillterBtn: UIButton {
-    /// 按钮的圆角大小
-    let conrnerRadius: CGFloat = 10
-    /// 按钮的边框宽度
-    let btnBorderWidth: CGFloat = 0.5
-    /// 按钮边框的颜色
-    let btnBorderColor: UIColor = UIColor.init(red: 0 / 255.0, green: 0 / 255.0, blue: 0 / 255.0, alpha: 0.06)
+/// 按钮的圆角大小
+fileprivate let conrnerRadius: CGFloat = 10
+/// 按钮的边框宽度
+fileprivate let btnBorderWidth: CGFloat = 0.5
+/// 按钮边框的颜色
+fileprivate let btnBorderColor: UIColor = UIColor.init(red: 0 / 255.0, green: 0 / 255.0, blue: 0 / 255.0, alpha: 0.06)
+
+class FillterListBtn: UIButton {
     
     var imageName: String? {
         didSet {
