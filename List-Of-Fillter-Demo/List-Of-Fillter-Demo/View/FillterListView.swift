@@ -37,10 +37,8 @@ class FillterListView: UIView {
     /// 距离父视图的左右距离
     private let margin: CGFloat = 16
     
-    /// 曲线按钮点击事件
-    var curveClick: (() -> Void)?
-    /// 关键帧点击事件
-    var resetClick: (() -> Void)?
+    /// 清除点击事件
+    var clearClick: (() -> Void)?
     /// 确定点击事件
     var determineClick: (() -> Void)?
     
@@ -66,7 +64,7 @@ class FillterListView: UIView {
         menuCollectionView.snp.makeConstraints { make in
             make.top.equalTo(fillterControView.snp.bottom).offset(16)
             make.left.equalToSuperview().offset(margin)
-            make.right.equalToSuperview().offset(-margin)
+            make.right.equalToSuperview()
             make.height.equalTo(20)
         }
         
@@ -74,7 +72,6 @@ class FillterListView: UIView {
         menuCollectionView.callBack = { (index: Int) -> Void in
             self.detailModel = self.fillterListModel[index].fillterList
             self.fillterControView.selectFillterChange(isSelectFillter: false)
-            self.menuCollectionView.clearState(state: true)
             self.fillterCollectionView.clearState()
         }
         
@@ -84,14 +81,13 @@ class FillterListView: UIView {
         fillterCollectionView.snp.makeConstraints { make in
             make.top.equalTo(menuCollectionView.snp.bottom).offset(16)
             make.left.equalToSuperview().offset(margin)
-            make.right.equalToSuperview().offset(-margin)
+            make.right.equalToSuperview()
             make.height.equalTo(84)
         }
         
         /// 滤镜详情列表点击的回调
         fillterCollectionView.callBack = {
             self.fillterControView.selectFillterChange(isSelectFillter: true)
-            self.menuCollectionView.clearState(state: false)
             self.detailItemModel = self.fillterCollectionView.fillterDetailItemModel
             self.fillterControView.sliderDefault()
         }
@@ -108,24 +104,15 @@ class FillterListView: UIView {
 extension FillterListView {
     /// 给四个按钮添加对应的点击事件以及block
     func addClickEvent() {
-        /// 关键帧点击事件
-        fillterControView.resetBack = {
-            self.resetClick?()
-        }
-        /// 曲线按钮点击
-        fillterControView.curveBack = {
-            self.curveClick?()
+        /// 清除点击事件
+        fillterControView.clearBack = {
+            self.clearClick?()
+            self.fillterControView.selectFillterChange(isSelectFillter: false)
+            self.fillterCollectionView.clearState()
         }
         /// 确定点击事件
         fillterControView.determineBack = {
             self.determineClick?()
-        }
-        
-        /// 菜单清除按钮点击的回调
-        menuCollectionView.btnCallBack = {
-            self.fillterControView.selectFillterChange(isSelectFillter: false)
-            self.fillterCollectionView.clearState()
-            self.clearBlock?()
         }
     }
 }

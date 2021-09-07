@@ -7,4 +7,5 @@ target 'List-Of-Fillter-Demo' do
 
   # Pods for List-Of-Fillter-Demo
 	pod 'SnapKit'
+	pod 'Kingfisher'
 end

@@ -11,8 +11,6 @@ class MenuCollectionView: UIView, UICollectionViewDelegate, UICollectionViewData
     
     /// 索引闭包
     typealias fillterMenuClickBlock = (_ index: Int) -> Void
-    /// 按钮点击闭包
-    typealias btnClickBlock = () -> Void
     /// cellID
     private let cellIdentifier: String = "fillterCellID"
     /// cell的行间距
@@ -27,13 +25,8 @@ class MenuCollectionView: UIView, UICollectionViewDelegate, UICollectionViewData
     /// 滤镜菜单的Model
     var menuModel: [FillterListModel] = []
     
-    /// 点击传递闭包
+    /// 点击传递索引闭包
     var callBack: fillterMenuClickBlock?
-    
-    /// 传递按钮点击事件闭包
-    var btnCallBack: btnClickBlock?
-    /// 清除按钮
-    var clearBtn: UIButton!
     /// 滤镜列表
     var collectionView: UICollectionView!
     /// layout
@@ -47,7 +40,7 @@ class MenuCollectionView: UIView, UICollectionViewDelegate, UICollectionViewData
             }
         }
     }
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         uiConfig()
@@ -61,19 +54,6 @@ class MenuCollectionView: UIView, UICollectionViewDelegate, UICollectionViewData
 /// MARK: collectionView UIConfig
 extension MenuCollectionView {
     func uiConfig() {
-        
-        clearBtn = UIButton()
-        self.addSubview(clearBtn)
-        clearBtn.snp.makeConstraints { make in
-            make.left.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.width.equalTo(btnSize.width)
-            make.height.equalTo(btnSize.height)
-        }
-        clearBtn.setImage(UIImage(named: "fillterClearBtn"), for: .normal)
-        clearBtn.addTarget(self, action: #selector(clearSelect), for: .touchUpInside)
-        clearState(state: true)
-        
         layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = minimumLineSpacingNum
         layout.scrollDirection = .horizontal
@@ -81,7 +61,7 @@ extension MenuCollectionView {
         self.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalTo(clearBtn.snp.right).offset(leftMargin)
+            make.left.equalToSuperview()
             make.right.equalToSuperview()
             make.height.equalTo(collectionViewHeight)
         }
@@ -99,7 +79,7 @@ extension MenuCollectionView {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return menuModel.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MenuCell
         cell.model = menuModel[indexPath.item]
@@ -124,39 +104,13 @@ extension MenuCollectionView {
     }
 }
 
-
-/// MARK: btn点击事件
-extension MenuCollectionView {
-    @objc func clearSelect() {
-        clearState(state: true)
-        btnCallBack?()
-    }
-}
-
-/// 清除函数
-extension MenuCollectionView {
-    func clearState(state: Bool) {
-        if (state) {
-            clearBtn.isEnabled = false
-        } else {
-            clearBtn.isEnabled = true
-        }
-    }
-}
-
 extension MenuCollectionView {
     func textAutoWidth(str: String, height:CGFloat, font:UIFont) ->CGFloat{
-
-        let string = str as NSString
-
-        let origin = NSStringDrawingOptions.usesLineFragmentOrigin
-
-        let lead = NSStringDrawingOptions.usesFontLeading
-
-        let rect = string.boundingRect(with:CGSize(width:0, height: height), options: [origin,lead], attributes: [NSAttributedString.Key.font:font], context:nil)
-
-        return rect.width
-
-    }
+        let string = str
+        let origin = NSStringDrawingOptions.usesLineFragmentOrigin
+        let lead = NSStringDrawingOptions.usesFontLeading
+        let rect = string.boundingRect(with:CGSize(width:0, height: height), options: [origin,lead], attributes: [NSAttributedString.Key.font:font], context:nil)
+        return rect.width
+    }
 }
 

@@ -10,10 +10,12 @@ import Foundation
 class FillterListModelItem: Decodable {
     /// id
     var id: String = ""
-    /// 是否选中
-    var isSelect: Bool = false
+    /// 是否需要更新
+    var isUpdate: Bool = false
     /// 滤镜名称
     var fillterName: String = ""
+    /// 滤镜图片
+    var imageUrl: String = ""
 }
 
 class FillterListModel: Decodable {

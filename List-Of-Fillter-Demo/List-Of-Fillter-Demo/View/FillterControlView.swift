@@ -8,18 +8,12 @@
 import UIKit
 
 class FillterControlView: UIView {
-    /// 曲线闭包
-    typealias curveBlock = () -> Void
-    /// 关键帧闭包
-    typealias resetBlock = () -> Void
-    /// 确定闭包
-    typealias determineBlock = () -> Void
     /// 清除闭包
     typealias clearBlock = () -> Void
+    /// 确定闭包
+    typealias determineBlock = () -> Void
     /// 按钮的边长
     let btnWidth: CGFloat = 40
-    /// slider的宽度
-    let sliderWidth: CGFloat = 180
     /// slider的最小值
     let sliderMinValue: Float = 0
     /// slider的最大值
@@ -32,11 +26,13 @@ class FillterControlView: UIView {
     let maximumColor = UIColor.init(red: 204 / 255.0, green: 204 / 255.0, blue: 204 / 255.0, alpha: 1.0)
     /// slider滑块图片
     let sliderImage = UIImage(named: "fillterSliderBtn")
+    /// slider距离按钮左右的距离
+    let sliderMargin: CGFloat = 24
+    /// 按钮距离父视图左右的距离
+    let btnMargin: CGFloat = 16
     
-    /// 曲线按钮的点击事件
-    var curveBack: curveBlock?
-    /// 关键帧的点击事件
-    var resetBack: resetBlock?
+    /// 清除按钮的点击事件
+    var clearBack: clearBlock?
     /// 打钩点击事件
     var determineBack: determineBlock?
     
@@ -44,10 +40,8 @@ class FillterControlView: UIView {
     private var disableView: UIView!
     /// 滑动条
     private var slider: UISlider!
-    /// 关键帧按钮
-    private var keyFramesBtn: FillterBtn!
-    /// 曲线按钮
-    private var curveBtn: FillterBtn!
+    /// 清除按钮
+    private var clearBtn: FillterBtn!
     /// 确定按钮
     private var determineBtn: FillterBtn!
     /// 顶部数值视图
@@ -69,30 +63,30 @@ class FillterControlView: UIView {
 
 extension FillterControlView {
     func setUI() {
-        keyFramesBtn = FillterBtn(frame: .zero)
-        self.addSubview(keyFramesBtn)
-        keyFramesBtn.snp.makeConstraints { make in
+        clearBtn = FillterBtn(frame: .zero)
+        self.addSubview(clearBtn)
+        clearBtn.snp.makeConstraints { make in
             make.left.equalToSuperview()
             make.centerY.equalToSuperview()
             make.width.height.equalTo(btnWidth)
         }
-        keyFramesBtn.imageName = "fillterResetBtn"
+        clearBtn.imageName = "fillterClearBtn"
         
-        curveBtn = FillterBtn(frame: .zero)
-        self.addSubview(curveBtn)
-        curveBtn.snp.makeConstraints { make in
-            make.left.equalTo(keyFramesBtn.snp.right).offset(8)
+        determineBtn = FillterBtn(frame: .zero)
+        self.addSubview(determineBtn)
+        determineBtn.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-btnMargin)
             make.centerY.equalToSuperview()
             make.width.height.equalTo(btnWidth)
         }
-        curveBtn.imageName = "fillterCurveBtn"
+        determineBtn.imageName = "fillterYesBtn"
         
         disableView = UIView(frame: .zero)
         self.addSubview(disableView)
         disableView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalTo(curveBtn.snp.right).offset(18)
-            make.width.equalTo(sliderWidth)
+            make.left.equalTo(clearBtn.snp.right).offset(sliderMargin)
+            make.right.equalTo(determineBtn.snp.left).offset(-sliderMargin)
             make.height.equalTo(2)
         }
         disableView.backgroundColor = UIColor.init(red: 204 / 255.0, green: 204 / 255.0, blue: 204 / 255.0, alpha: 1.0)
@@ -101,8 +95,8 @@ extension FillterControlView {
         self.addSubview(slider)
         slider.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalTo(curveBtn.snp.right).offset(18)
-            make.width.equalTo(sliderWidth)
+            make.left.equalTo(clearBtn.snp.right).offset(sliderMargin)
+            make.right.equalTo(determineBtn.snp.left).offset(-sliderMargin)
             make.height.equalTo(16)
         }
         //  最小值
@@ -122,15 +116,6 @@ extension FillterControlView {
         //  修改控制器图片
         slider.setThumbImage(sliderImage, for: .normal)
         
-        determineBtn = FillterBtn(frame: .zero)
-        self.addSubview(determineBtn)
-        determineBtn.snp.makeConstraints { make in
-            make.left.equalTo(slider.snp.right).offset(19)
-            make.centerY.equalToSuperview()
-            make.width.height.equalTo(btnWidth)
-        }
-        determineBtn.imageName = "fillterYesBtn"
-        
         valueView = FillterValueView(frame: .zero)
         self.addSubview(valueView)
         valueView.snp.makeConstraints { make in
@@ -149,6 +134,7 @@ extension FillterControlView {
     //  MARK: - sliderValueChange
     @objc func sliderValueChange(slider: UISlider) {
         let value = Int(slider.value)
+        let sliderWidth = slider.frame.size.width
         let priceWidth = sliderWidth / 100
         valueView.isHidden = false
         valueView.changeValue = value
@@ -167,14 +153,12 @@ extension FillterControlView {
     ///  点击滤镜菜单后的切换
     func selectFillterChange(isSelectFillter: Bool) {
         if isSelectFillter {
-            keyFramesBtn.isEnabled = true
-            curveBtn.isEnabled = true
+            clearBtn.isEnabled = true
             determineBtn.isEnabled = true
             disableView.isHidden = true
             slider.isHidden = false
         } else {
-            keyFramesBtn.isEnabled = false
-            curveBtn.isEnabled = false
+            clearBtn.isEnabled = false
             determineBtn.isEnabled = false
             disableView.isHidden = false
             slider.isHidden = true
@@ -192,19 +176,13 @@ extension FillterControlView {
 extension FillterControlView {
     /// 给按钮添加点击事件
     func addClickEvent() {
-        self.keyFramesBtn.addTarget(self, action: #selector(resetClick), for: .touchUpInside)
-        self.curveBtn.addTarget(self, action: #selector(curveClick(sender:)), for: .touchUpInside)
+        self.clearBtn.addTarget(self, action: #selector(clearClick), for: .touchUpInside)
         self.determineBtn.addTarget(self, action: #selector(determineClick), for: .touchUpInside)
     }
     
     /// 关键帧点击闭包
-    @objc func resetClick() {
-        resetBack?()
-    }
-    
-    /// 曲线点击闭包
-    @objc func curveClick(sender: UIButton) {
-        curveBack?()
+    @objc func clearClick() {
+        clearBack?()
     }
     
     /// 确定点击闭包

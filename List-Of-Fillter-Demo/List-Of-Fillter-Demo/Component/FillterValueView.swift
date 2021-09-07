@@ -17,6 +17,8 @@ class FillterValueView: UIView {
     let borderColor: UIColor = UIColor.init(red: 0 / 255.0, green: 0 / 255.0, blue: 0 / 255.0, alpha: 0.06)
     /// 字体颜色
     let textColor: UIColor = UIColor.init(red: 26 / 255.0, green: 26 / 255.0, blue: 26 / 255.0, alpha: 1.0)
+    /// 字体大小
+    let fontSize: CGFloat = 12.0
     
     /// 数值
     var changeValue: Int? {
@@ -37,7 +39,7 @@ class FillterValueView: UIView {
             make.edges.equalToSuperview()
         }
         
-        valueLabel.font = UIFont(name: "Montserrat-SemiBold", size: 12)
+        valueLabel.font = .systemFont(ofSize: fontSize)
         valueLabel.textAlignment = .center
         valueLabel.textColor = textColor
         valueLabel.text = "\(changeValue ?? 0)"

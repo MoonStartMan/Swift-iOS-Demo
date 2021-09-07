@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class FillterDetailCell: UICollectionViewCell {
     
@@ -17,6 +18,10 @@ class FillterDetailCell: UICollectionViewCell {
     /// 文字框的高度
     let textHeight: CGFloat = 18
     
+    /// 状态栏覆盖层
+    private var coverView: UIView!
+    /// 状态栏文字
+    private var coverLabel: UILabel!
     /// 图片
     private var fillterImage: UIImageView!
     /// 文字遮罩层
@@ -27,13 +32,24 @@ class FillterDetailCell: UICollectionViewCell {
     var model: FillterListModelItem? {
         didSet {
             fillterNameLabel.text = model?.fillterName
-//            fillterImage.image = UIImage(named: )
+            if let url = URL(string: model?.imageUrl ?? "") {
+                fillterImage.kf.setImage(with: url)
+            }
+            if (model?.isUpdate == false) {
+                coverView.isHidden = true
+            } else {
+                coverView.isHidden = false
+            }
         }
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        uiConfig()
+    }
+    
+    func uiConfig() {
         self.layer.cornerRadius = fillterCornerRadius
         self.layer.masksToBounds = true
         self.backgroundColor = .systemGray
@@ -43,6 +59,7 @@ class FillterDetailCell: UICollectionViewCell {
         fillterImage.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        fillterImage.contentMode = .scaleAspectFill
         
         fillterCover = UIView()
         self.addSubview(fillterCover)
@@ -64,6 +81,27 @@ class FillterDetailCell: UICollectionViewCell {
         fillterNameLabel.textColor = UIColor.init(red: 255 / 255.0, green: 255 / 255.0, blue: 255 / 255.0, alpha: 1.0)
         fillterNameLabel.font = .systemFont(ofSize: fontSize)
         fillterNameLabel.textAlignment = .center
+        
+        coverView = UIView()
+        self.addSubview(coverView)
+        coverView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        coverView.backgroundColor = UIColor(red: 0 / 255, green: 0 / 255, blue: 0 / 255, alpha: 0.6)
+        coverView.isHidden = true
+        
+        coverLabel = UILabel()
+        coverView.addSubview(coverLabel)
+        coverLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.height.equalTo(12)
+            make.width.equalToSuperview()
+        }
+        coverLabel.text = "需更新"
+        coverLabel.font = .systemFont(ofSize: 10)
+        coverLabel.textColor = .white
+        coverLabel.textAlignment = .center
     }
     
     /// 切换激活态
