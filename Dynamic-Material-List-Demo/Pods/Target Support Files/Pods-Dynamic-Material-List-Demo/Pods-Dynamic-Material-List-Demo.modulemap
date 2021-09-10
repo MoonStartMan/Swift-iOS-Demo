@@ -1,0 +1,6 @@
+framework module Pods_Dynamic_Material_List_Demo {
+  umbrella header "Pods-Dynamic-Material-List-Demo-umbrella.h"
+
+  export *
+  module * { export * }
+}
