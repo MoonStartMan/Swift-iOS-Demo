@@ -13,8 +13,7 @@ private let itemSize: CGSize = CGSize(width: 78, height: 76)
 private let cellID: String = "ChildCell"
 
 class DynamicListView: UIView, UICollectionViewDelegate, UICollectionViewDataSource {
-    typealias scrollBlock = (_ yPoint: CGFloat) -> Void
-
+    typealias scrollBlock = (_ scrollView: UIScrollView) -> Void
     var collectionView: UICollectionView!
     var layout: UICollectionViewFlowLayout!
     
@@ -22,7 +21,6 @@ class DynamicListView: UIView, UICollectionViewDelegate, UICollectionViewDataSou
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setUI()
     }
     
@@ -72,9 +70,6 @@ extension DynamicListView {
 
 extension DynamicListView {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > 0 && scrollView.contentOffset.y <= 100 {
-            scrollBack?(scrollView.contentOffset.y)
-            collectionView.contentOffset.y = 0
-        }
+        scrollBack?(scrollView)
     }
 }

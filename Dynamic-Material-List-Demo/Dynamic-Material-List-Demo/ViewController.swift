@@ -11,6 +11,15 @@ class ViewController: UIViewController {
 
     var dynamicListView: DynamicListView!
     
+    /// 最大高度
+    let maxHiehgt: CGFloat = 315
+    /// 最小的高度
+    let minHeight: CGFloat = 215
+    /// 记录向上滑动的值
+    var yUpPoint: CGFloat = 0
+    /// 记录向下滑动的值
+    var yDownPoint: CGFloat = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,28 +31,44 @@ class ViewController: UIViewController {
             make.height.equalTo(215)
         }
         
-        dynamicListView.scrollBack = { [weak self] yPoint in
+        dynamicListView.scrollBack = { [weak self] scrollView in
             guard let self = self else {
                 return
             }
-            let height = self.dynamicListView.frame.size.height
-            self.dynamicListView.snp.updateConstraints { make in
-                make.height.equalTo( height + yPoint)
-            }
+            self.changeSize(scrollView: scrollView)
         }
-        
-//        let handDrag = UIPanGestureRecognizer(target: self, action: #selector(Drag))
-//        dynamicListView.addGestureRecognizer(handDrag)
     }
     
-//    @objc func Drag(sender: UIPanGestureRecognizer) {
-//        var Point = sender.translation(in: self.view)
-//        Point = sender.location(in: self.view)
-//        if Point.y <= UIScreen.main.bounds.size.height-215 && Point.y >= UIScreen.main.bounds.size.height - 415 {
-//            dynamicListView.snp.updateConstraints { make in
-//                make.height.equalTo(215 + UIScreen.main.bounds.size.height - 215 - Point.y)
-//            }
-//        }
-//    }
+    func changeSize(scrollView: UIScrollView) {
+        let height = self.dynamicListView.frame.size.height
+        var result = height + scrollView.contentOffset.y
+        var contentOffSetY: CGFloat = 0
+        if result > self.maxHiehgt {
+            contentOffSetY = result - maxHiehgt
+            result = self.maxHiehgt
+        } else if result < self.minHeight {
+            contentOffSetY = result - minHeight
+            result = self.minHeight
+        }
+        self.dynamicListView.snp.updateConstraints { make in
+            make.height.equalTo(result)
+        }
+        
+        let difference = maxHiehgt - minHeight
+        
+        if scrollView.contentOffset.y > 0 && yUpPoint <= difference {
+            yUpPoint += scrollView.contentOffset.y
+            scrollView.contentOffset.y = contentOffSetY
+            if yUpPoint >= difference {
+                yDownPoint = 0
+            }
+        } else if scrollView.contentOffset.y < 0 && yDownPoint >= -difference{
+            yDownPoint += scrollView.contentOffset.y
+            scrollView.contentOffset.y = contentOffSetY
+            if yDownPoint <= -difference {
+                yUpPoint = 0
+            }
+        }
+    }
 
 }
