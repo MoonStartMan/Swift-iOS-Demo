@@ -42,7 +42,7 @@ extension DynamicListView {
         self.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(40)
         }
         collectionView.delegate = self
         collectionView.dataSource = self
