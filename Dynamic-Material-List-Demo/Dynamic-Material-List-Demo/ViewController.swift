@@ -10,16 +10,6 @@ import UIKit
 class ViewController: UIViewController {
 
     var dynamicListView: DynamicListView!
-    /// 最高值
-    var upPointY: CGFloat = 0.0
-    /// 滑动view中间判定值
-    var middleY: CGFloat = 0.0
-    /// 最低值
-    var bottionY: CGFloat = 0.0
-    /// 当前的Y值
-    var currentY: CGFloat = 0.0
-    /// 最大高度
-    var maxtop: CGFloat = 80.0
     
     /// 最大高度
     let maxHiehgt: CGFloat = 315
@@ -47,6 +37,8 @@ class ViewController: UIViewController {
             }
             self.changeSize(scrollView: scrollView)
         }
+        
+        addPanRecoginer()
     }
     
     func changeSize(scrollView: UIScrollView) {
@@ -83,24 +75,24 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController {
-    /// 纪录最高值
-    func countY() {
-        upPointY = maxtop
-        /// 滑动View中间判定值
-        middleY = self.view.frame.size.height - maxtop / 2
-        /// 最低值
-        bottionY = self.view.frame.minY
-        currentY = bottionY
-    }
-}
-
 /// 添加手势
 extension ViewController {
-    
+    func addPanRecoginer() {
+        let panRecoginer = UIPanGestureRecognizer(target: self, action: #selector(move))
+        dynamicListView.addGestureRecognizer(panRecoginer)
+    }
 }
 
 /// 事件
 extension ViewController {
-    
+    @objc func move(sender: UIPanGestureRecognizer) {
+        var point = sender.translation(in: self.view)
+        point = sender.location(in: self.view)
+        let height = self.view.frame.size.height - point.y
+        if height <= maxHiehgt && height >= minHeight {
+            dynamicListView.snp.updateConstraints { make in
+                make.height.equalTo(height)
+            }
+        }
+    }
 }
