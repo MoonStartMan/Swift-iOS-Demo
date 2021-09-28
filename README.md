@@ -72,3 +72,7 @@ Swift点击Demo
 ### progress-loading-Demo
 
 圆环进度条Demo
+
+### Swift-hitTest-View
+
+swift穿透点击Demo
