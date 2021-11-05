@@ -77,9 +77,9 @@ class MSSlider: UIView {
     /// 闭包传递sliderValue
     var sliderChange: sliderBlock?
     /// 左侧值(最小值)
-    var minimumValue: Int = 0
+    var minimumValue: Float = 0
     /// 右侧值(最大值)
-    var maximumValue: Int = 100
+    var maximumValue: Float = 100
     
     /// 中间按钮
     private var btn: MSSliderBtn!
@@ -160,38 +160,38 @@ extension MSSlider {
             var sliderValue: Int = 0
             
             if point.x == (self.frame.size.width / 2) {
-                sliderValue = (minimumValue + maximumValue) / 2
+                sliderValue = (Int(minimumValue) + Int(maximumValue)) / 2
             } else {
-                sliderValue = minimumValue + Int(sliderScale)
+                sliderValue = Int(minimumValue) + Int(sliderScale)
             }
             
             
             /// sliderValue为maximumValue和minimumValue时填充背景色
-            if sliderValue == maximumValue {
+            if sliderValue == Int(maximumValue) {
                 gradientLayer.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
-            } else if sliderValue == minimumValue {
+            } else if sliderValue == Int(minimumValue) {
                 gradientLayer.frame = CGRect(x: 0, y: 0, width: 0, height: self.frame.size.height)
             }
             
             /// sliderValue小于1份或者大于99份的时候吸附过去
-            if sliderValue <= (minimumValue + 1) {
+            if sliderValue <= (Int(minimumValue) + 1) {
                 UIView.animate(withDuration: 0.25) {
                     self.btn.snp.updateConstraints { make in
                         make.left.equalToSuperview().offset(0)
                     }
                 }
                 gradientLayer.frame = CGRect(x: 0, y: 0, width: 0, height: self.frame.size.height)
-                sliderValue = minimumValue
+                sliderValue = Int(minimumValue)
             }
 
-            if sliderValue >= (maximumValue - 1) {
+            if sliderValue >= (Int(maximumValue) - 1) {
                 UIView.animate(withDuration: 0.25) {
                     self.btn.snp.updateConstraints { make in
                         make.left.equalToSuperview().offset(self.frame.size.width - self.btn.frame.size.width)
                     }
                 }
                 gradientLayer.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
-                sliderValue = maximumValue
+                sliderValue = Int(maximumValue)
             }
             
             if sliderChange != nil {
