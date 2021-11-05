@@ -49,6 +49,7 @@ class ViewController: UIViewController {
         slider.thumbColor = .systemGray4 ///    设置滑块的颜色
         slider.minimumValue = -100  /// 设置最小值
         slider.maximumValue = 100   /// 设置最大值
+        slider.sliderProcess = 50
     }
 
 

@@ -74,6 +74,21 @@ class MSSlider: UIView {
             }
         }
     }
+    /// slider进度条大小
+    var sliderProcess: Float? {
+        didSet {
+            superview?.layoutIfNeeded()
+            if let process = sliderProcess {
+                if process >= Float(minimumValue) && process <= Float(maximumValue) {
+                    let ratio: Double = Double(process) / Double((maximumValue - minimumValue) / 2)
+                    btn.snp.updateConstraints { make in
+                        make.left.equalToSuperview().offset(ratio*self.frame.size.width - btn.frame.size.width / 2.0)
+                    }
+                    gradientLayer.frame = CGRect(x: 0, y: 0, width: ratio*self.frame.size.width, height: self.bounds.size.height)
+                }
+            }
+        }
+    }
     /// 闭包传递sliderValue
     var sliderChange: sliderBlock?
     /// 左侧值(最小值)
@@ -164,7 +179,6 @@ extension MSSlider {
             } else {
                 sliderValue = Int(minimumValue) + Int(sliderScale)
             }
-            
             
             /// sliderValue为maximumValue和minimumValue时填充背景色
             if sliderValue == Int(maximumValue) {
