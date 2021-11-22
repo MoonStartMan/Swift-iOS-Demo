@@ -15,7 +15,7 @@ class MSHalfSlider: UIView {
     typealias sliderChangeBlock = (_ value: Int) -> Void
     /// 滑动结束的闭包
     typealias sliderEndBlock = (_ value: Int) -> Void
-    /// 滑动结束闭包
+    
     /// slider的高度
     var sliderHeight: CGFloat? {
         didSet {
