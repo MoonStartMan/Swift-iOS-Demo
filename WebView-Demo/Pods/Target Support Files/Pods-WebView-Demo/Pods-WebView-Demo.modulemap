@@ -1,0 +1,6 @@
+framework module Pods_WebView_Demo {
+  umbrella header "Pods-WebView-Demo-umbrella.h"
+
+  export *
+  module * { export * }
+}
