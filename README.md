@@ -88,3 +88,7 @@ Button动画
 ### Text-Demo
 
 文字动态计算高度/添加删除线Demo
+
+### UISegmentedControl-Demo
+
+UISegmentedControl API使用Demo
