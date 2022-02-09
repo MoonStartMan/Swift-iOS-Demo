@@ -92,3 +92,7 @@ Button动画
 ### UISegmentedControl-Demo
 
 UISegmentedControl API使用Demo
+
+### CollectionViewDelegate-Demo
+
+collectionView根据显示多少个Cell埋点Demo
