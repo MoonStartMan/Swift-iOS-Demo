@@ -104,3 +104,7 @@ collectionView根据显示多少个Cell埋点Demo
 ### Load-Gif-Demo
 
 加载Gif-Demo
+
+### Extension-UIImage
+
+图片扩展
