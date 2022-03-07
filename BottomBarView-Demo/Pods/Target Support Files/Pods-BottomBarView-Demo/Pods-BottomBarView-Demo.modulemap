@@ -1,0 +1,6 @@
+framework module Pods_BottomBarView_Demo {
+  umbrella header "Pods-BottomBarView-Demo-umbrella.h"
+
+  export *
+  module * { export * }
+}
