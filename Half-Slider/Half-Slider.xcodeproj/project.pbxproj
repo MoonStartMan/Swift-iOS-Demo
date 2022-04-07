@@ -12,6 +12,9 @@
 		30A0AE44272FBEB20002AEC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A0AE43272FBEB20002AEC4 /* Assets.xcassets */; };
 		30A0AE47272FBEB20002AEC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A0AE45272FBEB20002AEC4 /* LaunchScreen.storyboard */; };
 		30A0AE4F272FC0100002AEC4 /* MSHalfSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A0AE4E272FC0100002AEC4 /* MSHalfSlider.swift */; };
+		30FDA2E527FD234B0033EB71 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FDA2E427FD234B0033EB71 /* UIColor+Extension.swift */; };
+		30FDA2E727FD24440033EB71 /* Comprable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FDA2E627FD24440033EB71 /* Comprable+Extension.swift */; };
+		30FDA2E927FD34A90033EB71 /* MarkSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FDA2E827FD34A90033EB71 /* MarkSlider.swift */; };
 		F72BE0748EFEA3A1FD0EDBE2 /* Pods_Half_Slider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BD7F5C131336B4FD756C9E /* Pods_Half_Slider.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +27,9 @@
 		30A0AE46272FBEB20002AEC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30A0AE48272FBEB20002AEC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30A0AE4E272FC0100002AEC4 /* MSHalfSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSHalfSlider.swift; sourceTree = "<group>"; };
+		30FDA2E427FD234B0033EB71 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		30FDA2E627FD24440033EB71 /* Comprable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comprable+Extension.swift"; sourceTree = "<group>"; };
+		30FDA2E827FD34A90033EB71 /* MarkSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkSlider.swift; sourceTree = "<group>"; };
 		62BD7F5C131336B4FD756C9E /* Pods_Half_Slider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Half_Slider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CF67636B6352BAE75F34BA8 /* Pods-Half-Slider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Half-Slider.debug.xcconfig"; path = "Target Support Files/Pods-Half-Slider/Pods-Half-Slider.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +73,9 @@
 				30A0AE43272FBEB20002AEC4 /* Assets.xcassets */,
 				30A0AE45272FBEB20002AEC4 /* LaunchScreen.storyboard */,
 				30A0AE48272FBEB20002AEC4 /* Info.plist */,
+				30FDA2E427FD234B0033EB71 /* UIColor+Extension.swift */,
+				30FDA2E627FD24440033EB71 /* Comprable+Extension.swift */,
+				30FDA2E827FD34A90033EB71 /* MarkSlider.swift */,
 			);
 			path = "Half-Slider";
 			sourceTree = "<group>";
@@ -203,8 +212,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				30A0AE3F272FBEB00002AEC4 /* ViewController.swift in Sources */,
+				30FDA2E927FD34A90033EB71 /* MarkSlider.swift in Sources */,
+				30FDA2E727FD24440033EB71 /* Comprable+Extension.swift in Sources */,
 				30A0AE4F272FC0100002AEC4 /* MSHalfSlider.swift in Sources */,
 				30A0AE3B272FBEB00002AEC4 /* AppDelegate.swift in Sources */,
+				30FDA2E527FD234B0033EB71 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +292,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -320,6 +333,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -358,7 +372,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pinguo.Test.Half-Slider";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinguo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -386,7 +400,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pinguo.Test.Half-Slider";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinguo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

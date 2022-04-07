@@ -11,7 +11,7 @@ import SnapKit
 class ViewController: UIViewController {
     
     private var slider: MSHalfSlider!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,24 +23,28 @@ class ViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.size.equalTo(CGSize(width: 200, height: 16))
         }
-        slider.maximumValue = 100
-        slider.minimumValue = -100
-    
+        slider.maximumValue = 0
+        slider.minimumValue = -200
+        slider.centerValue = -100
+        
         slider.sliderStartBack = { [weak self] value in
-            print(value)
+//            print(value)
         }
         
         slider.sliderChangeBack = { [weak self] value in
-            print(value)
+//            print(value)
         }
         
         slider.sliderEndBack = { [weak self] value in
-            print(value)
+//            print(value)
         }
         
         slider.sliderProcess = 50
     }
-
-
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
 }
 

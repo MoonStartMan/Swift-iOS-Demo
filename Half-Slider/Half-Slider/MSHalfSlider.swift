@@ -10,12 +10,11 @@ import SnapKit
 
 class MSHalfSlider: UIView {
     /// 滑动开始闭包
-    typealias sliderStartBlock = (_ value: Int) -> Void
+    typealias sliderStartBlock = (_ value: Float) -> Void
     /// 滑动改变闭包
-    typealias sliderChangeBlock = (_ value: Int) -> Void
+    typealias sliderChangeBlock = (_ value: Float) -> Void
     /// 滑动结束的闭包
-    typealias sliderEndBlock = (_ value: Int) -> Void
-    
+    typealias sliderEndBlock = (_ value: Float) -> Void
     /// slider的高度
     var sliderHeight: CGFloat? {
         didSet {
@@ -81,38 +80,48 @@ class MSHalfSlider: UIView {
     /// slider滑块图片
     var thumbImage: UIImage? {
         didSet {
-            if var image = thumbImage {
-                image = image.withRenderingMode(.alwaysTemplate)
+            if let image = thumbImage {
                 sliderBtn.setImage(image, for: .normal)
+                sliderBtn.setImage(image, for: .highlighted)
             }
         }
     }
     
-    /// slider滑块图片颜色
-    var thumbColor: UIColor? {
-        didSet {
-            if let color = thumbColor {
-                sliderBtn.tintColor = color
-            }
-        }
-    }
     /// slider进度条大小
     var sliderProcess: Float? {
         didSet {
             if let process = sliderProcess {
+                sliderValue = Double(sliderProcess ?? 0)
                 if process >= Float(minimumValue) && process <= Float(maximumValue) {
                     let ratio: Double = Double(process) / Double((maximumValue - minimumValue) / 2) + 1
-                    sliderBtn.snp.remakeConstraints { make in
-                        make.centerX.equalToSuperview().multipliedBy(ratio)
-                        make.size.equalTo(CGSize(width: 16, height: 16))
-                        make.centerY.equalToSuperview()
+                    if ratio > 0 {
+                        sliderBtn.snp.remakeConstraints { make in
+                            make.centerX.equalToSuperview().multipliedBy(ratio)
+                            make.width.height.equalTo(16)
+                            make.centerY.equalToSuperview()
+                        }
+                    } else {
+                        /**
+                         * 解决这个crash问题：
+                         * A multiplier of 0 or a nil second item together with a location for the first attribute creates an illegal constraint of a location equal to a constant.
+                         * Location attributes must be specified in pairs.'
+                         ***/
+                        sliderBtn.snp.remakeConstraints { make in
+                            make.centerX.equalTo(self.snp.left)
+                            make.size.equalTo(CGSize(width: 16, height: 16))
+                            make.centerY.equalToSuperview()
+                        }
                     }
                 }
             }
         }
     }
     
-    var sliderValue: Double = 0.0
+    var sliderValue: Double = 0.0 {
+        didSet {
+            sliderValueLabel.text = "\(Float(sliderValue))"
+        }
+    }
     /// 滑动开始闭包
     var sliderStartBack: sliderStartBlock?
     /// 滑动变化闭包
@@ -120,15 +129,19 @@ class MSHalfSlider: UIView {
     /// 滑动结束闭包
     var sliderEndBack: sliderEndBlock?
     /// 最小值
-    var minimumValue: Int = -100
+    var minimumValue: Float = -100
     /// 最大值
-    var maximumValue: Int = 100
+    var maximumValue: Float = 100
+    /// 中间值
+    var centerValue: Float = 0
     
     private var sliderCoverView: UIView!
     private var sliderBtn: UIButton!
     private var sliderLeftView: UIView!
     private var sliderRightView: UIView!
     private var centerView: UIView!
+    private var sliderValueView: UIView!
+    private var sliderValueLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -148,7 +161,7 @@ class MSHalfSlider: UIView {
             make.centerY.equalToSuperview()
             make.height.equalTo(2)
         }
-        sliderCoverView.backgroundColor = .systemGray3
+        sliderCoverView.backgroundColor = .hex("#CCCCCC", 0.4)
         
         centerView = UIView()
         self.addSubview(centerView)
@@ -156,9 +169,9 @@ class MSHalfSlider: UIView {
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
             make.height.equalTo(10)
-            make.width.equalTo(2)
+            make.width.equalTo(1)
         }
-        centerView.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+        centerView.backgroundColor = UIColor.hex("#1A1A1A")
         
         sliderBtn = UIButton()
         self.addSubview(sliderBtn)
@@ -167,8 +180,9 @@ class MSHalfSlider: UIView {
             make.size.equalTo(CGSize(width: 16, height: 16))
             make.centerY.equalToSuperview()
         }
-        sliderBtn.setImage(UIImage(named: "ms_slider_btn"), for: .normal)
-        sliderBtn.imageView?.contentMode = .scaleAspectFit
+        sliderBtn.setImage(UIImage(named: "edit_music_volume_thumb_icon"), for: .normal)
+        sliderBtn.imageView?.contentMode = .scaleAspectFill
+        sliderBtn.setImage(UIImage(named: "edit_music_volume_thumb_icon"), for: .highlighted)
         let handDrag = UIPanGestureRecognizer(target: self, action: #selector(dragRight))
         sliderBtn.addGestureRecognizer(handDrag)
         
@@ -180,7 +194,7 @@ class MSHalfSlider: UIView {
             make.height.equalToSuperview()
             make.width.greaterThanOrEqualTo(0)
         }
-        sliderLeftView.backgroundColor = UIColor(red: 0.819, green: 1, blue: 0.094, alpha: 1)
+        sliderLeftView.backgroundColor = UIColor.hex("#D1FF18")
         
         sliderRightView = UIView()
         sliderCoverView.addSubview(sliderRightView)
@@ -190,65 +204,151 @@ class MSHalfSlider: UIView {
             make.height.equalToSuperview()
             make.width.greaterThanOrEqualTo(0)
         }
-        sliderRightView.backgroundColor = UIColor(red: 0.819, green: 1, blue: 0.094, alpha: 1)
+        sliderRightView.backgroundColor = UIColor.hex("#D1FF18")
+        
+        sliderValueView = UIView()
+        self.addSubview(sliderValueView)
+        sliderValueView.snp.makeConstraints { make in
+            make.bottom.equalTo(sliderBtn.snp.top).offset(-8)
+            make.centerX.equalTo(sliderBtn.snp.centerX)
+            make.size.equalTo(CGSize(width: 42, height: 26))
+        }
+        sliderValueView.backgroundColor = .hex("#FFFFFF")
+        sliderValueView.layer.borderWidth = 0.5
+        sliderValueView.layer.borderColor = UIColor.hex("#000000", 0.06).cgColor
+        sliderValueView.layer.cornerRadius = 10
+        sliderValueView.layer.masksToBounds = true
+        sliderValueView.isHidden = true
+        
+        sliderValueLabel = UILabel()
+        sliderValueView.addSubview(sliderValueLabel)
+        sliderValueLabel.snp.makeConstraints { make in
+            make.height.equalTo(14)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        sliderValueLabel.textColor = .hex("#1A1A1A")
+        sliderValueLabel.font = .systemFont(ofSize: 12, weight: .bold)
+        sliderValueLabel.text = "\(Int(sliderValue))"
+    }
+    
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        let margin: CGFloat = 20
+        let area = self.bounds.insetBy(dx: -margin, dy: -margin)
+        return area.contains(point)
+    }
+}
+
+/// 初始化数据
+extension MSHalfSlider {
+    func initConfig() {
+        bgColor = .hex("#CCCCCC", 0.4)
+        leftBgColor = .hex("#D1FF18")
+        rightBgColor = .hex("#D1FF18")
+        thumbImage = UIImage(named: "edit_music_volume_thumb_icon")
     }
 }
 
 // MARK: - 拖拽手势
 extension MSHalfSlider {
     @objc func dragRight(sender: UIPanGestureRecognizer) {
-        /// 开始滑动时
-        if sender.state == .changed {
-            var point = sender.translation(in: self)
-            point = sender.location(in: self)
-            /// 左右的峰值
-            let maxValue = (maximumValue - minimumValue) / 2
-            /// 左右的宽度
-            let priceWidth = (self.frame.size.width) / 2
-            /// 滑动的距离
-            let sliderWidth = point.x - priceWidth
-            /// 滑动的值
-            sliderValue = round(Double(sliderWidth * CGFloat(maxValue) / priceWidth))
-            /// 滑动比例
-            let scrollRatio = sliderWidth / self.frame.size.width
-            
-            if point.x >= 0 && point.x <= self.frame.size.width {
-                //  右滑
-                sliderBtn.snp.remakeConstraints { make in
-                    make.centerX.equalToSuperview().offset(sliderValue / Double(maxValue) * self.frame.size.width / 2 )
-                    make.size.equalTo(CGSize(width: 16, height: 16))
-                    make.centerY.equalToSuperview()
-                }
-                
-                if scrollRatio >= 0.49 {
-                    sliderValue = Double(maximumValue)
-                    sliderBtn.snp.remakeConstraints { make in
-                        make.centerX.equalToSuperview().offset(self.frame.size.width / 2)
-                        make.size.equalTo(CGSize(width: 16, height: 16))
-                        make.centerY.equalToSuperview()
-                    }
-                } else if scrollRatio <= -0.49 {
-                    sliderValue = Double(minimumValue)
-                    sliderBtn.snp.remakeConstraints { make in
-                        make.centerX.equalToSuperview().offset(-self.frame.size.width / 2)
-                        make.size.equalTo(CGSize(width: 16, height: 16))
-                        make.centerY.equalToSuperview()
-                    }
-                }
-                if Int(sliderValue) >= minimumValue && Int(sliderValue) <= maximumValue {
-                    sliderChangeBack?(Int(sliderValue))
-                }
-            }
-        /// 滑动结束时
-        } else if sender.state == .ended {
-            if Int(sliderValue) >= minimumValue && Int(sliderValue) <= maximumValue {
-                sliderEndBack?(Int(sliderValue))
-            }
-        } else if sender.state == .began {
-            if Int(sliderValue) >= minimumValue && Int(sliderValue) <= maximumValue {
-                sliderStartBack?(Int(sliderValue))
+        
+        func callbackValue(isEnd: Bool) {
+            let value = Float(sliderValue).clamped(min: minimumValue, max: maximumValue)
+            if isEnd {
+                sliderEndBack?(value)
+            } else {
+                sliderChangeBack?(value)
             }
         }
         
+        /// 开始滑动时
+        if sender.state == .changed {
+            sliderValueView.isHidden = false
+            var point = sender.translation(in: self)
+            point = sender.location(in: self)
+            
+            /// 当前宽度
+            let currentWidth = self.frame.size.width
+            /// 滑动的距离
+            let sliderWidth = point.x
+            /// 滑动的值
+            var currentSliderValue: Double = 0.0
+            
+            if point.x >= 0 && point.x <= self.frame.size.width / 2 {
+                if minimumValue >= 0 {
+                    let a = currentWidth / 2.0 - sliderWidth
+                    let b = currentWidth / 2.0
+                    let c = Float(a / b) * (centerValue - minimumValue) + minimumValue
+                    currentSliderValue = Double(centerValue - c)
+                } else {
+                    let a = currentWidth / 2.0 - sliderWidth
+                    let b = currentWidth / 2.0
+                    let c = Float(a / b) * (centerValue - minimumValue)
+                    currentSliderValue = Double(centerValue - c)
+                }
+            } else if point.x >= currentWidth / 2 && point.x <= currentWidth {
+                if maximumValue >= 0 {
+                    let a = sliderWidth - currentWidth / 2.0
+                    let b = currentWidth / 2.0
+                    let c = Float(a / b) * (maximumValue - centerValue) + centerValue
+                    currentSliderValue = Double(c)
+                } else {
+                    let a = sliderWidth - currentWidth / 2.0
+                    let b = currentWidth / 2.0
+                    let c = Float(a / b) * (maximumValue - centerValue)
+                    currentSliderValue = Double(c)
+                }
+            } else if point.x == currentWidth / 2 {
+                currentSliderValue = Double(centerValue)
+            } else if point.x > currentWidth {
+                currentSliderValue = Double(maximumValue)
+            } else if point.x < 0 {
+                currentSliderValue = Double(minimumValue)
+            }
+            
+            currentSliderValue = min(currentSliderValue, Double(maximumValue))
+            currentSliderValue = max(currentSliderValue, Double(minimumValue))
+            
+            sliderValue = roundToplaces(value: currentSliderValue, places: 2)
+            
+            if point.x >= 0 && point.x <= self.frame.size.width {
+                
+                if point.x > currentWidth / 2 && point.x <= currentWidth {
+                    //  右滑
+                    sliderBtn.snp.remakeConstraints { make in
+                        let offset = sliderWidth - currentWidth / 2.0
+                        make.centerX.equalToSuperview().offset(offset)
+                        make.size.equalTo(CGSize(width: 16, height: 16))
+                        make.centerY.equalToSuperview()
+                    }
+                } else if point.x > 0 && point.x < currentWidth / 2 {
+                    sliderBtn.snp.remakeConstraints { make in
+                        let offset = sliderWidth - currentWidth / 2.0
+                        make.centerX.equalToSuperview().offset(offset)
+                        make.size.equalTo(CGSize(width: 16, height: 16))
+                        make.centerY.equalToSuperview()
+                    }
+                } else if point.x == currentWidth / 2 {
+                    sliderBtn.snp.remakeConstraints { make in
+                        make.centerX.equalToSuperview()
+                        make.size.equalTo(CGSize(width: 16, height: 16))
+                        make.centerY.equalToSuperview()
+                    }
+                }
+                callbackValue(isEnd: false)
+            }
+        } else if sender.state == .began {
+            
+        } else {
+            sliderValueView.isHidden = true
+            callbackValue(isEnd: true)
+        }
+        
+    }
+    
+    func roundToplaces(value: Double, places: Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return round(value * divisor) / divisor
     }
 }
