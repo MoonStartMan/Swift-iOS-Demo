@@ -112,3 +112,7 @@ collectionView根据显示多少个Cell埋点Demo
 ### swift-color-picker-Demo
 
 swift色盘选择器Demo
+
+### swift-picture-color-demo
+
+swift拾色器Demo

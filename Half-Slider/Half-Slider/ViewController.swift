@@ -23,9 +23,9 @@ class ViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.size.equalTo(CGSize(width: 200, height: 16))
         }
-        slider.maximumValue = 0
-        slider.minimumValue = -200
-        slider.centerValue = -100
+        slider.maximumValue = 10
+        slider.minimumValue = 0.1
+        slider.centerValue = 1
         
         slider.sliderStartBack = { [weak self] value in
 //            print(value)
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
 //            print(value)
         }
         
-        slider.sliderProcess = 50
+        slider.sliderProcess = 1
     }
     
     override func didReceiveMemoryWarning() {
