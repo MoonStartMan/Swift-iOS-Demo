@@ -1,0 +1,6 @@
+framework module Pods_Swift_ScrollView_Demo {
+  umbrella header "Pods-Swift-ScrollView-Demo-umbrella.h"
+
+  export *
+  module * { export * }
+}
