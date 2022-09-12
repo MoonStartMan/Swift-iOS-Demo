@@ -128,3 +128,7 @@ Viewcontroller-present，各种style跳转Demo
 ## panpelProtocol-Demo
 
 协议传值Demo
+
+## MovingView-Demo
+
+滚动的文字Demo
