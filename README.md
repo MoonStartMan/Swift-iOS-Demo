@@ -140,3 +140,7 @@ GCD-Demo
 ## Swift-Lock-Demo
 
 swift-lock-demo
+
+## swift-drawer-menu-demo
+
+swift-drawer-menu-demo

@@ -1,0 +1,6 @@
+framework module Pods_swift_drawer_menu_demo {
+  umbrella header "Pods-swift-drawer-menu-demo-umbrella.h"
+
+  export *
+  module * { export * }
+}
