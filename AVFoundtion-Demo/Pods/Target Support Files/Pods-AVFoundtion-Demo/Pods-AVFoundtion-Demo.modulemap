@@ -1,0 +1,6 @@
+framework module Pods_AVFoundtion_Demo {
+  umbrella header "Pods-AVFoundtion-Demo-umbrella.h"
+
+  export *
+  module * { export * }
+}
