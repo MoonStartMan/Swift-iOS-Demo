@@ -1,0 +1,6 @@
+framework module Pods_AutoLayout_Demo {
+  umbrella header "Pods-AutoLayout-Demo-umbrella.h"
+
+  export *
+  module * { export * }
+}
