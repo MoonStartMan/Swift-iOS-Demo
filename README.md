@@ -168,3 +168,7 @@ UILabel-Shadow-Demo
 ## swift-rich-text-demo
 
 swift-rich-text-demo
+
+## LoginDemo
+
+LoginDemo
