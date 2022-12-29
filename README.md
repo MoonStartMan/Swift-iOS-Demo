@@ -164,3 +164,7 @@ AutoLayout-Demo
 ## UILabel-Shadow-Demo
 
 UILabel-Shadow-Demo
+
+## swift-rich-text-demo
+
+swift-rich-text-demo
