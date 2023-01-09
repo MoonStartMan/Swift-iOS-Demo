@@ -172,3 +172,7 @@ swift-rich-text-demo
 ## LoginDemo
 
 LoginDemo
+
+## Low-Battery-Demo
+
+Low-Battery-Demo
