@@ -123,6 +123,16 @@ extension MSMultiEffectToggleView: UICollectionViewDataSource, UICollectionViewD
         firstIn = false
         currentIndex = indexPath.item
         selectBlock?(currentIndex)
+        moveAnimation(collectionView: collectionView, indexPath: indexPath)
+    }
+    
+    func setCurrentActive(index: Int) {
+        collectionView.superview?.layoutIfNeeded()
+        moveAnimation(collectionView: collectionView, indexPath: IndexPath(item: index, section: 0))
+        currentIndex = index
+    }
+    
+    private func moveAnimation(collectionView: UICollectionView, indexPath: IndexPath) {
         if let tempCell = collectionView.cellForItem(at: indexPath) as? MSMultiEffectToggleCell {
             var cellX: CGFloat = 0.0
             var translatePosition: CGFloat = 0.0
@@ -159,7 +169,6 @@ extension MSMultiEffectToggleView: UICollectionViewDataSource, UICollectionViewD
             }
         }
     }
-    
 }
 
 struct MSToggleItemModel {
