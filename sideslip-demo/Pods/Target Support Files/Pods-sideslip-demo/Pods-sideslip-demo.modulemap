@@ -1,0 +1,6 @@
+framework module Pods_sideslip_demo {
+  umbrella header "Pods-sideslip-demo-umbrella.h"
+
+  export *
+  module * { export * }
+}
