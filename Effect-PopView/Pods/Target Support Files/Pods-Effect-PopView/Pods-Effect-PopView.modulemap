@@ -1,0 +1,6 @@
+framework module Pods_Effect_PopView {
+  umbrella header "Pods-Effect-PopView-umbrella.h"
+
+  export *
+  module * { export * }
+}
