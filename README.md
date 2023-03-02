@@ -212,3 +212,7 @@ UIStackView-Demo
 ## Effect-PopView
 
 Effect-PopView
+
+## UIImage-Blur-Demo
+
+UIImage-Blur-Demo
