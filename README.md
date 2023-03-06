@@ -216,3 +216,11 @@ Effect-PopView
 ## UIImage-Blur-Demo
 
 UIImage-Blur-Demo
+
+## iOS-Blur-Demo
+
+iOS-Blur-Demo
+
+## CoreAnimation-Demo
+
+CoreAnimation-Demo
