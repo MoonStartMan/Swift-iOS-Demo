@@ -13,12 +13,14 @@ class ViewController: UIViewController {
     private var calayerView: CALayerView = CALayerView()
     
     private var cgaffineTransFromView: CGAffineTransformView = CGAffineTransformView()
+    
+    private var cashapeLayerView: CAShapeLayerView = CAShapeLayerView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        DoCGAffineTransformView()
+        DoDrawShapeLayer()
     }
 }
 
@@ -38,6 +40,15 @@ extension ViewController {
     func DoCGAffineTransformView() {
         view.addSubview(cgaffineTransFromView)
         cgaffineTransFromView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.height.equalTo(100)
+        }
+    }
+    
+    /// CAShapeLayerView
+    func DoDrawShapeLayer() {
+        view.addSubview(cashapeLayerView)
+        cashapeLayerView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.width.height.equalTo(100)
         }

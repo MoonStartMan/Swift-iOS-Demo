@@ -10,12 +10,14 @@ import UIKit
 class CGAffineTransformView: UIView {
     
     private var transformView: UIView = UIView()
+    
+    private var imageView: UIImageView = UIImageView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         setupView()
-        setTransForm3DMakeRotation()
+        subLayerTransform()
     }
     
     required init?(coder: NSCoder) {
@@ -81,11 +83,27 @@ class CGAffineTransformView: UIView {
     func setTransForm3DMakeRotation() {
         UIView.animate(withDuration: 3.0, delay: 0) {
             var transform = CATransform3DIdentity
+            /// 如果有多个 view 或 layer，每个都需添加 3D 变换，则必须对所有 view、layer 应用相同m34，并确保变换前处于屏幕中心同样位置。
             transform.m34 = -1.0 / 500.0
             transform = CATransform3DRotate(transform, .pi / 4.0, 0, 1, 0)
             self.transformView.transform3D = transform
         }
     }
     
+    func subLayerTransform() {
+        transformView.removeFromSuperview()
+        addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        imageView.image = UIImage(named: "scenery")
+        
+        UIView.animate(withDuration: 3.0) {
+            var perspective = CATransform3DIdentity
+            perspective.m34 = -1.0 / 500.0
+            self.imageView.layer.sublayerTransform = perspective
+            self.imageView.transform3D = CATransform3DMakeRotation(-.pi / 4.0, 0, 1, 0)
+        }
+    }
     
 }
