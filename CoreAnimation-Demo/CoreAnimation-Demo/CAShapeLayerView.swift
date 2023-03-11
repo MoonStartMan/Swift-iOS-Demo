@@ -12,7 +12,7 @@ class CAShapeLayerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        transformLayer()
+        drawCAReplicatorLayer()
     }
     
     required init?(coder: NSCoder) {
@@ -53,7 +53,7 @@ class CAShapeLayerView: UIView {
         let layer = CALayer()
         layer.backgroundColor = UIColor.gray.cgColor
         layer.position = center
-        layer.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+        layer.bounds = CGRect(x: 0, y: 0, width: 200, height: 200)
         
         let maskLayer = CAShapeLayer()
         maskLayer.path = path.cgPath
@@ -69,7 +69,7 @@ class CAShapeLayerView: UIView {
         layer.addSublayer(container)
         
         let planesPosition = layer.position
-        let planeSize = CGSize(width: 100, height: 100)
+        let planeSize = CGSize(width: 200, height: 200)
         let purplePlane = addPlane(container: container, size: planeSize, position: planesPosition, color: UIColor.purple)
         let redPlane = addPlane(container: container, size: planeSize, position: planesPosition, color: UIColor.red)
         let orangePlane = addPlane(container: container, size: planeSize, position: planesPosition, color: UIColor.orange)
@@ -112,5 +112,45 @@ class CAShapeLayerView: UIView {
             container.addSublayer(plane)
             return plane
         }
+    }
+    
+    private func drawCAGradientLayer() {
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.red.cgColor, UIColor.yellow.cgColor, UIColor.green.cgColor]
+        gradient.locations = [0.0, 0.25, 0.5]
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 1, y: 1)
+        gradient.frame = bounds
+        layer.addSublayer(gradient)
+    }
+    
+    private func drawCAReplicatorLayer() {
+        var replicatorLayer = CAReplicatorLayer()
+        replicatorLayer.bounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height)
+        layer.addSublayer(replicatorLayer)
+        
+        replicatorLayer.instanceCount = 10
+        
+        var transform = CATransform3DIdentity
+        transform = CATransform3DTranslate(transform, 0, 50, 0)
+        transform = CATransform3DRotate(transform, .pi / 5.0, 0, 0, 1)
+        transform = CATransform3DTranslate(transform, 0, -50, 0)
+        replicatorLayer.instanceTransform = transform
+        
+        replicatorLayer.instanceBlueOffset = -0.1
+        replicatorLayer.instanceGreenOffset = -0.1
+        
+        let layer = CALayer()
+        layer.bounds = CGRect(x: 0, y: 0, width: 25, height: 25)
+        layer.position = layer.position
+        layer.backgroundColor = UIColor.white.cgColor
+        
+        replicatorLayer.addSublayer(layer)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+//        drawCAGradientLayer()
     }
 }

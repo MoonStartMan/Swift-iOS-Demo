@@ -14,6 +14,9 @@
 		301B1AD829B5D2DB00B01C7A /* CGAffineTransformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301B1AD729B5D2DB00B01C7A /* CGAffineTransformView.swift */; };
 		301B1ADA29B5D2FC00B01C7A /* CALayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301B1AD929B5D2FC00B01C7A /* CALayerView.swift */; };
 		30EC44CB29B7180300102145 /* CAShapeLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EC44CA29B7180300102145 /* CAShapeLayerView.swift */; };
+		30F2345429B86D89005EEDC8 /* ReflectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2345329B86D89005EEDC8 /* ReflectionView.swift */; };
+		30F2345829B8A0EF005EEDC8 /* CAScrollLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2345729B8A0EF005EEDC8 /* CAScrollLayerView.swift */; };
+		30F2345A29B967C5005EEDC8 /* CATiledLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2345929B967C5005EEDC8 /* CATiledLayerView.swift */; };
 		4ACCBCE8DCD4423398824528 /* Pods_CoreAnimation_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9AE51EBC84AB5DBDA519FFD /* Pods_CoreAnimation_Demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +30,9 @@
 		301B1AD729B5D2DB00B01C7A /* CGAffineTransformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAffineTransformView.swift; sourceTree = "<group>"; };
 		301B1AD929B5D2FC00B01C7A /* CALayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerView.swift; sourceTree = "<group>"; };
 		30EC44CA29B7180300102145 /* CAShapeLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAShapeLayerView.swift; sourceTree = "<group>"; };
+		30F2345329B86D89005EEDC8 /* ReflectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionView.swift; sourceTree = "<group>"; };
+		30F2345729B8A0EF005EEDC8 /* CAScrollLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAScrollLayerView.swift; sourceTree = "<group>"; };
+		30F2345929B967C5005EEDC8 /* CATiledLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATiledLayerView.swift; sourceTree = "<group>"; };
 		3C791DF2A1040E23ECCD07CA /* Pods-CoreAnimation-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreAnimation-Demo.debug.xcconfig"; path = "Target Support Files/Pods-CoreAnimation-Demo/Pods-CoreAnimation-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		89353278136E65008B0EAB1C /* Pods-CoreAnimation-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreAnimation-Demo.release.xcconfig"; path = "Target Support Files/Pods-CoreAnimation-Demo/Pods-CoreAnimation-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		F9AE51EBC84AB5DBDA519FFD /* Pods_CoreAnimation_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreAnimation_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +76,9 @@
 				301B1AD929B5D2FC00B01C7A /* CALayerView.swift */,
 				301B1AD729B5D2DB00B01C7A /* CGAffineTransformView.swift */,
 				30EC44CA29B7180300102145 /* CAShapeLayerView.swift */,
+				30F2345329B86D89005EEDC8 /* ReflectionView.swift */,
+				30F2345729B8A0EF005EEDC8 /* CAScrollLayerView.swift */,
+				30F2345929B967C5005EEDC8 /* CATiledLayerView.swift */,
 				301B1ACA29B57B6100B01C7A /* Assets.xcassets */,
 				301B1ACC29B57B6100B01C7A /* LaunchScreen.storyboard */,
 				301B1ACF29B57B6100B01C7A /* Info.plist */,
@@ -209,7 +218,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				301B1ADA29B5D2FC00B01C7A /* CALayerView.swift in Sources */,
+				30F2345829B8A0EF005EEDC8 /* CAScrollLayerView.swift in Sources */,
+				30F2345429B86D89005EEDC8 /* ReflectionView.swift in Sources */,
 				30EC44CB29B7180300102145 /* CAShapeLayerView.swift in Sources */,
+				30F2345A29B967C5005EEDC8 /* CATiledLayerView.swift in Sources */,
 				301B1AC629B57B5F00B01C7A /* ViewController.swift in Sources */,
 				301B1AC229B57B5F00B01C7A /* AppDelegate.swift in Sources */,
 				301B1AD829B5D2DB00B01C7A /* CGAffineTransformView.swift in Sources */,
