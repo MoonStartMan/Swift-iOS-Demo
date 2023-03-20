@@ -1,0 +1,6 @@
+framework module Pods_iOS_Get_System_Information {
+  umbrella header "Pods-iOS-Get-System-Information-umbrella.h"
+
+  export *
+  module * { export * }
+}
