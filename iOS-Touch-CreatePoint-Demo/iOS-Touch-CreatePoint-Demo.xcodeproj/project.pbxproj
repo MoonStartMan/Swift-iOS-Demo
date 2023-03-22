@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04BA9EE50711F252A9ED3384 /* Pods_iOS_Touch_CreatePoint_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D6578EC48C9FA2A0F0569B /* Pods_iOS_Touch_CreatePoint_Demo.framework */; };
+		30ED954029C94DAE009E7493 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED953F29C94DAE009E7493 /* AppDelegate.swift */; };
+		30ED954429C94DAE009E7493 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED954329C94DAE009E7493 /* ViewController.swift */; };
+		30ED954929C94DB1009E7493 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30ED954829C94DB1009E7493 /* Assets.xcassets */; };
+		30ED954C29C94DB1009E7493 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30ED954A29C94DB1009E7493 /* LaunchScreen.storyboard */; };
+		30ED955429C950D9009E7493 /* PointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED955329C950D9009E7493 /* PointView.swift */; };
+		30F19A1E29C9B97000FD73C4 /* PointCursorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F19A1D29C9B97000FD73C4 /* PointCursorView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		30ED953C29C94DAE009E7493 /* iOS-Touch-CreatePoint-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Touch-CreatePoint-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		30ED953F29C94DAE009E7493 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		30ED954329C94DAE009E7493 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		30ED954829C94DB1009E7493 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		30ED954B29C94DB1009E7493 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		30ED954D29C94DB1009E7493 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30ED955329C950D9009E7493 /* PointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointView.swift; sourceTree = "<group>"; };
+		30F19A1D29C9B97000FD73C4 /* PointCursorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCursorView.swift; sourceTree = "<group>"; };
+		31D6578EC48C9FA2A0F0569B /* Pods_iOS_Touch_CreatePoint_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Touch_CreatePoint_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F9363FAC0303D9432F95535 /* Pods-iOS-Touch-CreatePoint-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Touch-CreatePoint-Demo.debug.xcconfig"; path = "Target Support Files/Pods-iOS-Touch-CreatePoint-Demo/Pods-iOS-Touch-CreatePoint-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		CE9CECB01EC5343811AEFCB1 /* Pods-iOS-Touch-CreatePoint-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Touch-CreatePoint-Demo.release.xcconfig"; path = "Target Support Files/Pods-iOS-Touch-CreatePoint-Demo/Pods-iOS-Touch-CreatePoint-Demo.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		30ED953929C94DAE009E7493 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04BA9EE50711F252A9ED3384 /* Pods_iOS_Touch_CreatePoint_Demo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		30ED953329C94DAE009E7493 = {
+			isa = PBXGroup;
+			children = (
+				30ED953E29C94DAE009E7493 /* iOS-Touch-CreatePoint-Demo */,
+				30ED953D29C94DAE009E7493 /* Products */,
+				8CE7B0C018924CBF52517884 /* Pods */,
+				E7857E84454EBB1BF051A662 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		30ED953D29C94DAE009E7493 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30ED953C29C94DAE009E7493 /* iOS-Touch-CreatePoint-Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		30ED953E29C94DAE009E7493 /* iOS-Touch-CreatePoint-Demo */ = {
+			isa = PBXGroup;
+			children = (
+				30ED953F29C94DAE009E7493 /* AppDelegate.swift */,
+				30ED954329C94DAE009E7493 /* ViewController.swift */,
+				30F19A1D29C9B97000FD73C4 /* PointCursorView.swift */,
+				30ED955329C950D9009E7493 /* PointView.swift */,
+				30ED954829C94DB1009E7493 /* Assets.xcassets */,
+				30ED954A29C94DB1009E7493 /* LaunchScreen.storyboard */,
+				30ED954D29C94DB1009E7493 /* Info.plist */,
+			);
+			path = "iOS-Touch-CreatePoint-Demo";
+			sourceTree = "<group>";
+		};
+		8CE7B0C018924CBF52517884 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F9363FAC0303D9432F95535 /* Pods-iOS-Touch-CreatePoint-Demo.debug.xcconfig */,
+				CE9CECB01EC5343811AEFCB1 /* Pods-iOS-Touch-CreatePoint-Demo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E7857E84454EBB1BF051A662 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31D6578EC48C9FA2A0F0569B /* Pods_iOS_Touch_CreatePoint_Demo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		30ED953B29C94DAE009E7493 /* iOS-Touch-CreatePoint-Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30ED955029C94DB1009E7493 /* Build configuration list for PBXNativeTarget "iOS-Touch-CreatePoint-Demo" */;
+			buildPhases = (
+				07BBD414240D23A74DF1B3DA /* [CP] Check Pods Manifest.lock */,
+				30ED953829C94DAE009E7493 /* Sources */,
+				30ED953929C94DAE009E7493 /* Frameworks */,
+				30ED953A29C94DAE009E7493 /* Resources */,
+				087051D1988DE6A4F50BF19D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iOS-Touch-CreatePoint-Demo";
+			productName = "iOS-Touch-CreatePoint-Demo";
+			productReference = 30ED953C29C94DAE009E7493 /* iOS-Touch-CreatePoint-Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		30ED953429C94DAE009E7493 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					30ED953B29C94DAE009E7493 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 30ED953729C94DAE009E7493 /* Build configuration list for PBXProject "iOS-Touch-CreatePoint-Demo" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 30ED953329C94DAE009E7493;
+			productRefGroup = 30ED953D29C94DAE009E7493 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				30ED953B29C94DAE009E7493 /* iOS-Touch-CreatePoint-Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		30ED953A29C94DAE009E7493 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30ED954C29C94DB1009E7493 /* LaunchScreen.storyboard in Resources */,
+				30ED954929C94DB1009E7493 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07BBD414240D23A74DF1B3DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOS-Touch-CreatePoint-Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		087051D1988DE6A4F50BF19D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS-Touch-CreatePoint-Demo/Pods-iOS-Touch-CreatePoint-Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS-Touch-CreatePoint-Demo/Pods-iOS-Touch-CreatePoint-Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS-Touch-CreatePoint-Demo/Pods-iOS-Touch-CreatePoint-Demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		30ED953829C94DAE009E7493 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30ED955429C950D9009E7493 /* PointView.swift in Sources */,
+				30ED954429C94DAE009E7493 /* ViewController.swift in Sources */,
+				30ED954029C94DAE009E7493 /* AppDelegate.swift in Sources */,
+				30F19A1E29C9B97000FD73C4 /* PointCursorView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		30ED954A29C94DB1009E7493 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30ED954B29C94DB1009E7493 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		30ED954E29C94DB1009E7493 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		30ED954F29C94DB1009E7493 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		30ED955129C94DB1009E7493 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F9363FAC0303D9432F95535 /* Pods-iOS-Touch-CreatePoint-Demo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T8X8L4U33S;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS-Touch-CreatePoint-Demo/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pinguo.Test.iOS-Touch-CreatePoint-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		30ED955229C94DB1009E7493 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE9CECB01EC5343811AEFCB1 /* Pods-iOS-Touch-CreatePoint-Demo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T8X8L4U33S;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS-Touch-CreatePoint-Demo/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pinguo.Test.iOS-Touch-CreatePoint-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		30ED953729C94DAE009E7493 /* Build configuration list for PBXProject "iOS-Touch-CreatePoint-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30ED954E29C94DB1009E7493 /* Debug */,
+				30ED954F29C94DB1009E7493 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30ED955029C94DB1009E7493 /* Build configuration list for PBXNativeTarget "iOS-Touch-CreatePoint-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30ED955129C94DB1009E7493 /* Debug */,
+				30ED955229C94DB1009E7493 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 30ED953429C94DAE009E7493 /* Project object */;
+}
