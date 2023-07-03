@@ -7,80 +7,89 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3020CED12A15D1920073BF66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020CED02A15D1920073BF66 /* AppDelegate.swift */; };
-		3020CED52A15D1920073BF66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020CED42A15D1920073BF66 /* ViewController.swift */; };
-		3020CEDA2A15D1940073BF66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3020CED92A15D1940073BF66 /* Assets.xcassets */; };
-		3020CEDD2A15D1940073BF66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3020CEDB2A15D1940073BF66 /* LaunchScreen.storyboard */; };
-		B0CD251D668387782C4CABF5 /* Pods_Contacts_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D012A2A77BBFBC6C2DE11680 /* Pods_Contacts_Demo.framework */; };
+		30E242632A4A74CD009B4628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E242622A4A74CD009B4628 /* AppDelegate.swift */; };
+		30E242672A4A74CD009B4628 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E242662A4A74CD009B4628 /* ViewController.swift */; };
+		30E2426C2A4A74CF009B4628 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30E2426B2A4A74CF009B4628 /* Assets.xcassets */; };
+		30E2426F2A4A74CF009B4628 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30E2426D2A4A74CF009B4628 /* LaunchScreen.storyboard */; };
+		30E242772A4C2532009B4628 /* TopStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E242762A4C2532009B4628 /* TopStackView.swift */; };
+		30E242792A4C2549009B4628 /* BottomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E242782A4C2549009B4628 /* BottomStackView.swift */; };
+		30E2427B2A4D5A75009B4628 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2427A2A4D5A75009B4628 /* SliderView.swift */; };
+		E089981849898F85E5DD637F /* Pods_StackView_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5FBFD68D2FD6A58466D80A /* Pods_StackView_Demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		12CB7DB65D66DA8CAE5AD722 /* Pods-Contacts-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Contacts-Demo/Pods-Contacts-Demo.debug.xcconfig"; sourceTree = "<group>"; };
-		3020CECD2A15D1920073BF66 /* Contacts-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Contacts-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3020CED02A15D1920073BF66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3020CED42A15D1920073BF66 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3020CED92A15D1940073BF66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3020CEDC2A15D1940073BF66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3020CEDE2A15D1940073BF66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		350478EBBD71389B9D4944C0 /* Pods-Contacts-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts-Demo.release.xcconfig"; path = "Target Support Files/Pods-Contacts-Demo/Pods-Contacts-Demo.release.xcconfig"; sourceTree = "<group>"; };
-		D012A2A77BBFBC6C2DE11680 /* Pods_Contacts_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contacts_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C5FBFD68D2FD6A58466D80A /* Pods_StackView_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StackView_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30E2425F2A4A74CD009B4628 /* StackView-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StackView-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		30E242622A4A74CD009B4628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		30E242662A4A74CD009B4628 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
+		30E2426B2A4A74CF009B4628 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		30E2426E2A4A74CF009B4628 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		30E242702A4A74CF009B4628 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30E242762A4C2532009B4628 /* TopStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStackView.swift; sourceTree = "<group>"; };
+		30E242782A4C2549009B4628 /* BottomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomStackView.swift; sourceTree = "<group>"; };
+		30E2427A2A4D5A75009B4628 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		78ECD774D6AA0C6388AE0041 /* Pods-StackView-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackView-Demo.debug.xcconfig"; path = "Target Support Files/Pods-StackView-Demo/Pods-StackView-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		882F4C1A4C019E406920B768 /* Pods-StackView-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackView-Demo.release.xcconfig"; path = "Target Support Files/Pods-StackView-Demo/Pods-StackView-Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3020CECA2A15D1920073BF66 /* Frameworks */ = {
+		30E2425C2A4A74CD009B4628 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0CD251D668387782C4CABF5 /* Pods_Contacts_Demo.framework in Frameworks */,
+				E089981849898F85E5DD637F /* Pods_StackView_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B252301FC57D268130D6AF6 /* Frameworks */ = {
+		06D2F3919636C948C8E3E423 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D012A2A77BBFBC6C2DE11680 /* Pods_Contacts_Demo.framework */,
+				0C5FBFD68D2FD6A58466D80A /* Pods_StackView_Demo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3020CEC42A15D1920073BF66 = {
+		30E242562A4A74CD009B4628 = {
 			isa = PBXGroup;
 			children = (
-				3020CECF2A15D1920073BF66 /* Contacts-Demo */,
-				3020CECE2A15D1920073BF66 /* Products */,
-				A4B2902346EBAF3A7AD5AB03 /* Pods */,
-				2B252301FC57D268130D6AF6 /* Frameworks */,
+				30E242612A4A74CD009B4628 /* StackView-Demo */,
+				30E242602A4A74CD009B4628 /* Products */,
+				ADE0B6E1EADA46CAF2961AF5 /* Pods */,
+				06D2F3919636C948C8E3E423 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		3020CECE2A15D1920073BF66 /* Products */ = {
+		30E242602A4A74CD009B4628 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3020CECD2A15D1920073BF66 /* Contacts-Demo.app */,
+				30E2425F2A4A74CD009B4628 /* StackView-Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3020CECF2A15D1920073BF66 /* Contacts-Demo */ = {
+		30E242612A4A74CD009B4628 /* StackView-Demo */ = {
 			isa = PBXGroup;
 			children = (
-				3020CED02A15D1920073BF66 /* AppDelegate.swift */,
-				3020CED42A15D1920073BF66 /* ViewController.swift */,
-				3020CED92A15D1940073BF66 /* Assets.xcassets */,
-				3020CEDB2A15D1940073BF66 /* LaunchScreen.storyboard */,
-				3020CEDE2A15D1940073BF66 /* Info.plist */,
+				30E242622A4A74CD009B4628 /* AppDelegate.swift */,
+				30E242662A4A74CD009B4628 /* ViewController.swift */,
+				30E242762A4C2532009B4628 /* TopStackView.swift */,
+				30E242782A4C2549009B4628 /* BottomStackView.swift */,
+				30E2427A2A4D5A75009B4628 /* SliderView.swift */,
+				30E2426B2A4A74CF009B4628 /* Assets.xcassets */,
+				30E2426D2A4A74CF009B4628 /* LaunchScreen.storyboard */,
+				30E242702A4A74CF009B4628 /* Info.plist */,
 			);
-			path = "Contacts-Demo";
+			path = "StackView-Demo";
 			sourceTree = "<group>";
 		};
-		A4B2902346EBAF3A7AD5AB03 /* Pods */ = {
+		ADE0B6E1EADA46CAF2961AF5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				12CB7DB65D66DA8CAE5AD722 /* Pods-Contacts-Demo.debug.xcconfig */,
-				350478EBBD71389B9D4944C0 /* Pods-Contacts-Demo.release.xcconfig */,
+				78ECD774D6AA0C6388AE0041 /* Pods-StackView-Demo.debug.xcconfig */,
+				882F4C1A4C019E406920B768 /* Pods-StackView-Demo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -88,41 +97,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3020CECC2A15D1920073BF66 /* Contacts-Demo */ = {
+		30E2425E2A4A74CD009B4628 /* StackView-Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3020CEE12A15D1940073BF66 /* Build configuration list for PBXNativeTarget "Contacts-Demo" */;
+			buildConfigurationList = 30E242732A4A74CF009B4628 /* Build configuration list for PBXNativeTarget "StackView-Demo" */;
 			buildPhases = (
-				301CE240E1477632DDE83984 /* [CP] Check Pods Manifest.lock */,
-				3020CEC92A15D1920073BF66 /* Sources */,
-				3020CECA2A15D1920073BF66 /* Frameworks */,
-				3020CECB2A15D1920073BF66 /* Resources */,
-				D7F6E8A6EFCAEFDE92C2FD42 /* [CP] Embed Pods Frameworks */,
+				AE08171F88429C4FEB86D153 /* [CP] Check Pods Manifest.lock */,
+				30E2425B2A4A74CD009B4628 /* Sources */,
+				30E2425C2A4A74CD009B4628 /* Frameworks */,
+				30E2425D2A4A74CD009B4628 /* Resources */,
+				C6806C0C5B3776E3A0B59701 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Contacts-Demo";
-			productName = "Contacts-Demo";
-			productReference = 3020CECD2A15D1920073BF66 /* Contacts-Demo.app */;
+			name = "StackView-Demo";
+			productName = "StackView-Demo";
+			productReference = 30E2425F2A4A74CD009B4628 /* StackView-Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3020CEC52A15D1920073BF66 /* Project object */ = {
+		30E242572A4A74CD009B4628 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					3020CECC2A15D1920073BF66 = {
+					30E2425E2A4A74CD009B4628 = {
 						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
-			buildConfigurationList = 3020CEC82A15D1920073BF66 /* Build configuration list for PBXProject "Contacts-Demo" */;
+			buildConfigurationList = 30E2425A2A4A74CD009B4628 /* Build configuration list for PBXProject "StackView-Demo" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -130,30 +139,30 @@
 				en,
 				Base,
 			);
-			mainGroup = 3020CEC42A15D1920073BF66;
-			productRefGroup = 3020CECE2A15D1920073BF66 /* Products */;
+			mainGroup = 30E242562A4A74CD009B4628;
+			productRefGroup = 30E242602A4A74CD009B4628 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3020CECC2A15D1920073BF66 /* Contacts-Demo */,
+				30E2425E2A4A74CD009B4628 /* StackView-Demo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3020CECB2A15D1920073BF66 /* Resources */ = {
+		30E2425D2A4A74CD009B4628 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3020CEDD2A15D1940073BF66 /* LaunchScreen.storyboard in Resources */,
-				3020CEDA2A15D1940073BF66 /* Assets.xcassets in Resources */,
+				30E2426F2A4A74CF009B4628 /* LaunchScreen.storyboard in Resources */,
+				30E2426C2A4A74CF009B4628 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		301CE240E1477632DDE83984 /* [CP] Check Pods Manifest.lock */ = {
+		AE08171F88429C4FEB86D153 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -168,49 +177,52 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Contacts-Demo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-StackView-Demo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D7F6E8A6EFCAEFDE92C2FD42 /* [CP] Embed Pods Frameworks */ = {
+		C6806C0C5B3776E3A0B59701 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Contacts-Demo/Pods-Contacts-Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-StackView-Demo/Pods-StackView-Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Contacts-Demo/Pods-Contacts-Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-StackView-Demo/Pods-StackView-Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Contacts-Demo/Pods-Contacts-Demo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StackView-Demo/Pods-StackView-Demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3020CEC92A15D1920073BF66 /* Sources */ = {
+		30E2425B2A4A74CD009B4628 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3020CED52A15D1920073BF66 /* ViewController.swift in Sources */,
-				3020CED12A15D1920073BF66 /* AppDelegate.swift in Sources */,
+				30E242672A4A74CD009B4628 /* ViewController.swift in Sources */,
+				30E242772A4C2532009B4628 /* TopStackView.swift in Sources */,
+				30E242792A4C2549009B4628 /* BottomStackView.swift in Sources */,
+				30E242632A4A74CD009B4628 /* AppDelegate.swift in Sources */,
+				30E2427B2A4D5A75009B4628 /* SliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3020CEDB2A15D1940073BF66 /* LaunchScreen.storyboard */ = {
+		30E2426D2A4A74CF009B4628 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3020CEDC2A15D1940073BF66 /* Base */,
+				30E2426E2A4A74CF009B4628 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -218,7 +230,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		3020CEDF2A15D1940073BF66 /* Debug */ = {
+		30E242712A4A74CF009B4628 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -278,7 +290,7 @@
 			};
 			name = Debug;
 		};
-		3020CEE02A15D1940073BF66 /* Release */ = {
+		30E242722A4A74CF009B4628 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -332,9 +344,9 @@
 			};
 			name = Release;
 		};
-		3020CEE22A15D1940073BF66 /* Debug */ = {
+		30E242742A4A74CF009B4628 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12CB7DB65D66DA8CAE5AD722 /* Pods-Contacts-Demo.debug.xcconfig */;
+			baseConfigurationReference = 78ECD774D6AA0C6388AE0041 /* Pods-StackView-Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -342,8 +354,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T8X8L4U33S;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Contacts-Demo/Info.plist";
-				INFOPLIST_KEY_NSContactsUsageDescription = "获取通讯权限";
+				INFOPLIST_FILE = "StackView-Demo/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -353,17 +364,20 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pinguo.Test.Contacts-Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pinguo.Test.StackView-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		3020CEE32A15D1940073BF66 /* Release */ = {
+		30E242752A4A74CF009B4628 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 350478EBBD71389B9D4944C0 /* Pods-Contacts-Demo.release.xcconfig */;
+			baseConfigurationReference = 882F4C1A4C019E406920B768 /* Pods-StackView-Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -371,8 +385,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T8X8L4U33S;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Contacts-Demo/Info.plist";
-				INFOPLIST_KEY_NSContactsUsageDescription = "获取通讯权限";
+				INFOPLIST_FILE = "StackView-Demo/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -382,36 +395,39 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pinguo.Test.Contacts-Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pinguo.Test.StackView-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3020CEC82A15D1920073BF66 /* Build configuration list for PBXProject "Contacts-Demo" */ = {
+		30E2425A2A4A74CD009B4628 /* Build configuration list for PBXProject "StackView-Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3020CEDF2A15D1940073BF66 /* Debug */,
-				3020CEE02A15D1940073BF66 /* Release */,
+				30E242712A4A74CF009B4628 /* Debug */,
+				30E242722A4A74CF009B4628 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3020CEE12A15D1940073BF66 /* Build configuration list for PBXNativeTarget "Contacts-Demo" */ = {
+		30E242732A4A74CF009B4628 /* Build configuration list for PBXNativeTarget "StackView-Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3020CEE22A15D1940073BF66 /* Debug */,
-				3020CEE32A15D1940073BF66 /* Release */,
+				30E242742A4A74CF009B4628 /* Debug */,
+				30E242752A4A74CF009B4628 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 3020CEC52A15D1920073BF66 /* Project object */;
+	rootObject = 30E242572A4A74CD009B4628 /* Project object */;
 }
