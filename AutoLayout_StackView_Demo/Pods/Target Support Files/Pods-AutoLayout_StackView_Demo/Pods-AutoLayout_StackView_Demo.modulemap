@@ -1,0 +1,6 @@
+framework module Pods_AutoLayout_StackView_Demo {
+  umbrella header "Pods-AutoLayout_StackView_Demo-umbrella.h"
+
+  export *
+  module * { export * }
+}
