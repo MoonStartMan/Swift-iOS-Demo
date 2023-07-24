@@ -268,3 +268,7 @@ Slider-Show-Demo
 ## AutoLayout_StackView_Demo
 
 AutoLayout_StackView_Demo
+
+## SOLID-Demo
+
+SOLID-Demo
