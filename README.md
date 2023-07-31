@@ -272,3 +272,7 @@ AutoLayout_StackView_Demo
 ## SOLID-Demo
 
 SOLID-Demo
+
+## Throttling-Demo
+
+Throttling-Demo
