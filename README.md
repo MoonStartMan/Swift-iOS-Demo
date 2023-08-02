@@ -276,3 +276,7 @@ SOLID-Demo
 ## Throttling-Demo
 
 Throttling-Demo
+
+## Prototype-Pattern-Demo
+
+Prototype-Pattern-Demo
