@@ -280,3 +280,7 @@ Throttling-Demo
 ## Prototype-Pattern-Demo
 
 Prototype-Pattern-Demo
+
+## Flicker-Demo
+
+Flicker-Demo
