@@ -284,3 +284,7 @@ Prototype-Pattern-Demo
 ## Flicker-Demo
 
 Flicker-Demo
+
+## DealWithImage-Demo
+
+DealWithImage-Demo
